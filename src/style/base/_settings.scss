@@ -1,0 +1,22 @@
+// Colors  
+$danger: #EF796D;
+$success: #20BFA9;
+$warning:#FEB95A;
+
+$active: #5151da;
+
+$primary: #FFFFFF;
+$secundary: #232228;
+
+$bgColorMain: #0B0A0F;
+$bgColorNav: #0C0B10;
+
+$duration: 0.2s;
+
+@media (prefers-color-scheme: light) {
+    $primary: #14121F;
+    $secundary: #F3F3FD;
+
+    $bgColorMain: #EBEBF5;
+    $bgColorNav: #EBEBF5;
+}

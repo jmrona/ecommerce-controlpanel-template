@@ -1,0 +1,117 @@
+main {
+  max-width: 100%;
+  border-radius: 25px;
+  margin: 5px 30px 30px 0px;
+  padding: 30px 35px;
+}
+
+main div.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main div.row {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  width: 100%;
+}
+
+.col-1 {
+  min-width: 8.33%;
+}
+
+.col-2 {
+  min-width: 16.66%;
+}
+
+.col-3 {
+  min-width: 25%;
+}
+
+.col-4 {
+  min-width: 32.33%;
+}
+
+.col-5 {
+  min-width: 41.66%;
+}
+
+.col-6 {
+  min-width: 50%;
+}
+
+.col-7 {
+  min-width: 58.33%;
+}
+
+.col-8 {
+  min-width: 66.66%;
+}
+
+.col-9 {
+  min-width: 75%;
+}
+
+.col-10 {
+  min-width: 83.33%;
+}
+
+.col-11 {
+  min-width: 91.66%;
+}
+
+.col-12 {
+  min-width: 100%;
+}
+
+@media only screen and (max-width: 650px) {
+  .col-sm-1 {
+    min-width: 8.33%;
+  }
+  .col-sm-2 {
+    min-width: 16.66%;
+  }
+  .col-sm-3 {
+    min-width: 25%;
+  }
+  .col-sm-4 {
+    min-width: 32.33%;
+  }
+  .col-sm-5 {
+    min-width: 41.66%;
+  }
+  .col-sm-6 {
+    min-width: 50%;
+  }
+  .col-sm-7 {
+    min-width: 58.33%;
+  }
+  .col-sm-8 {
+    min-width: 66.66%;
+  }
+  .col-sm-9 {
+    min-width: 75%;
+  }
+  .col-sm-10 {
+    min-width: 83.33%;
+  }
+  .col-sm-11 {
+    min-width: 91.66%;
+  }
+  .col-sm-12 {
+    min-width: 100%;
+  }
+}
+/*# sourceMappingURL=main.css.map */

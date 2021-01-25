@@ -1,0 +1,58 @@
+.navbar {
+    
+    nav{
+        height: 100%;
+    }
+    ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        list-style: none;
+
+        height: 100%;
+        width: 100%;    
+
+        li a{
+            display: flex;
+            flex-direction: row;
+
+            place-items: center;
+
+            padding: 10px;
+            margin-right: 15px;
+            
+            border-radius: 50%;
+            background-color: #505050;
+
+            i.logout{
+                font-size: 1.5rem;
+                transition: $duration ease-in-out;
+                &:hover{
+                    color: $danger
+                }
+            }
+            
+            i.notifications{
+                font-size: 1rem;
+                transition: $duration ease-in-out;
+                @keyframes move {
+                    0%, 100%, 50%{
+                        transform: rotateZ(0deg);
+                    }
+                    30%{
+                        transform: rotateZ(15deg);
+                    }
+                    70%{
+                        transform: rotateZ(-15deg);
+                    }
+                }
+                &:hover{
+                    animation: move 0.3s;
+                    color: #c4a05d;
+                }
+                
+            }
+        }
+    }
+}

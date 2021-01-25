@@ -1,0 +1,47 @@
+@charset "UTF-8";
+div.card {
+  position: relative;
+  padding: 20px;
+  color: #FFF;
+  background: linear-gradient(45deg, #1B1A1F, purple);
+  background-clip: padding-box;
+  /* !importanté */
+  border: solid 5px transparent;
+  /* !importanté */
+  border-radius: 20px;
+}
+
+div.card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -5px;
+  border-radius: inherit;
+  background: linear-gradient(45deg, #1B1A1F, orange);
+}
+
+div.card .card-header {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.card .card-header .pointer {
+  cursor: pointer;
+}
+/*# sourceMappingURL=card.css.map */
