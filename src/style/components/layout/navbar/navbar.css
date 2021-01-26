@@ -33,23 +33,23 @@
   padding: 10px;
   margin-right: 15px;
   border-radius: 50%;
-  background-color: #505050;
+  background-color: var(--bgColorMain);
 }
 
 .navbar ul li a i.logout {
   font-size: 1.5rem;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
+  -webkit-transition: var(--duration) ease-in-out;
+  transition: var(--duration) ease-in-out;
 }
 
 .navbar ul li a i.logout:hover {
-  color: #EF796D;
+  color: var(--danger);
 }
 
 .navbar ul li a i.notifications {
   font-size: 1rem;
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
+  -webkit-transition: var(--duration) ease-in-out;
+  transition: var(--duration) ease-in-out;
 }
 
 @-webkit-keyframes move {
@@ -57,11 +57,11 @@
     -webkit-transform: rotateZ(0deg);
             transform: rotateZ(0deg);
   }
-  30% {
+  25% {
     -webkit-transform: rotateZ(15deg);
             transform: rotateZ(15deg);
   }
-  70% {
+  75% {
     -webkit-transform: rotateZ(-15deg);
             transform: rotateZ(-15deg);
   }
@@ -72,19 +72,39 @@
     -webkit-transform: rotateZ(0deg);
             transform: rotateZ(0deg);
   }
-  30% {
+  25% {
     -webkit-transform: rotateZ(15deg);
             transform: rotateZ(15deg);
   }
-  70% {
+  75% {
     -webkit-transform: rotateZ(-15deg);
             transform: rotateZ(-15deg);
   }
 }
 
 .navbar ul li a i.notifications:hover {
-  -webkit-animation: move 0.3s;
-          animation: move 0.3s;
-  color: #c4a05d;
+  -webkit-animation: move var(--duration-notifications);
+          animation: move var(--duration-notifications);
+  color: var(--notifications);
+}
+
+.navbar ul li a i.light {
+  font-size: 1rem;
+  -webkit-transition: var(--duration) ease-in-out;
+  transition: var(--duration) ease-in-out;
+}
+
+.navbar ul li a i.light:hover {
+  color: var(--light);
+}
+
+.navbar ul li a i.dark {
+  font-size: 1rem;
+  -webkit-transition: var(--duration) ease-in-out;
+  transition: var(--duration) ease-in-out;
+}
+
+.navbar ul li a i.dark:hover {
+  color: var(--dark);
 }
 /*# sourceMappingURL=navbar.css.map */

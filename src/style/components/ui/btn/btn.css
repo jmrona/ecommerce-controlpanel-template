@@ -1,5 +1,164 @@
-.btn {
-  font-size: 16px;
-  padding: 18px 32px;
+a.btn-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+a.btn-flex .btn {
+  padding: 12px 20px;
+  line-height: 120%;
+  font-weight: 500;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+.btn-block {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.btn-success {
+  background: var(--success);
+  border: 1px solid var(--success-border);
+  -webkit-transition: var(--duration) ease-out;
+  transition: var(--duration) ease-out;
+}
+
+.btn-success:hover, .btn-success focus {
+  background: var(--success-hover);
+  -webkit-box-shadow: 0 2px 10px 0 var(--success-shadow);
+          box-shadow: 0 2px 10px 0 var(--success-shadow);
+}
+
+.btn-outline-success {
+  color: var(--colorText);
+  border: 1px solid var(--success-border);
+  -webkit-transition: var(--duration) ease-out;
+  transition: var(--duration) ease-out;
+}
+
+.btn-outline-success:hover, .btn-outline-success focus {
+  background: var(--success-hover);
+  -webkit-box-shadow: 0 2px 10px 0 var(--success-shadow);
+          box-shadow: 0 2px 10px 0 var(--success-shadow);
+}
+
+.btn-danger {
+  background: var(--danger);
+  border: 1px solid var(--danger-border);
+  -webkit-transition: var(--duration) ease-out;
+  transition: var(--duration) ease-out;
+}
+
+.btn-danger:hover, .btn-danger focus {
+  background: var(--danger-hover);
+  -webkit-box-shadow: 0 2px 10px 0 var(--danger-shadow);
+          box-shadow: 0 2px 10px 0 var(--danger-shadow);
+}
+
+.btn-outline-danger {
+  color: var(--colorText);
+  border: 1px solid var(--danger-border);
+  -webkit-transition: var(--duration) ease-out;
+  transition: var(--duration) ease-out;
+}
+
+.btn-outline-danger:hover, .btn-outline-danger focus {
+  background: var(--danger-hover);
+  -webkit-box-shadow: 0 2px 10px 0 var(--danger-shadow);
+          box-shadow: 0 2px 10px 0 var(--danger-shadow);
+}
+
+.btn-warning {
+  background: var(--warning);
+  border: 1px solid var(--warning-border);
+  -webkit-transition: var(--duration) ease-out;
+  transition: var(--duration) ease-out;
+}
+
+.btn-warning:hover, .btn-warning focus {
+  background: var(--warning-hover);
+  -webkit-box-shadow: 0 2px 10px 0 var(--warning-shadow);
+          box-shadow: 0 2px 10px 0 var(--warning-shadow);
+}
+
+.btn-outline-warning {
+  color: var(--colorText);
+  border: 1px solid var(--warning-border);
+  -webkit-transition: var(--duration) ease-out;
+  transition: var(--duration) ease-out;
+}
+
+.btn-outline-warning:hover, .btn-outline-warning focus {
+  background: var(--warning-hover);
+  -webkit-box-shadow: 0 2px 10px 0 #b1813e69;
+          box-shadow: 0 2px 10px 0 #b1813e69;
+}
+
+.btn-default {
+  color: var(--black-color) !important;
+  background: var(--default);
+  border: 1px solid var(--default-border);
+  -webkit-transition: var(--duration) ease-out;
+  transition: var(--duration) ease-out;
+}
+
+.btn-default:hover, .btn-default focus {
+  background: var(--default-hover);
+  -webkit-box-shadow: 0 2px 10px 0 var(--default-shadow);
+          box-shadow: 0 2px 10px 0 var(--default-shadow);
+}
+
+.btn-outline-default {
+  color: var(--colorText);
+  border: 1px solid var(--default-border);
+  -webkit-transition: var(--duration) ease-out;
+  transition: var(--duration) ease-out;
+}
+
+.btn-outline-default:hover, .btn-outline-default focus {
+  color: #161616;
+  background: var(--default-hover);
+  -webkit-box-shadow: 0 2px 10px 0 var(--default-shadow);
+          box-shadow: 0 2px 10px 0 var(--default-shadow);
+}
+
+.btn-blue {
+  background: var(--blue);
+  border: 1px solid var(--blue-border);
+  -webkit-transition: var(--duration) ease-out;
+  transition: var(--duration) ease-out;
+}
+
+.btn-blue:hover, .btn-blue focus {
+  background: var(--blue-hover);
+  -webkit-box-shadow: 0 2px 10px 0 var(--blue-shadow);
+          box-shadow: 0 2px 10px 0 var(--blue-shadow);
+}
+
+.btn-outline-blue {
+  color: var(--colorText);
+  border: 1px solid var(--blue-border);
+  -webkit-transition: var(--duration) ease-out;
+  transition: var(--duration) ease-out;
+}
+
+.btn-outline-blue:hover, .btn-outline-blue focus {
+  background: var(--blue-hover);
+  -webkit-box-shadow: 0 5px 10px 5px var(--blue-shadow);
+          box-shadow: 0 5px 10px 5px var(--blue-shadow);
+}
+
+@media only screen and (max-width: 650px) {
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    min-width: 40px;
+    height: 40px;
+  }
 }
 /*# sourceMappingURL=btn.css.map */

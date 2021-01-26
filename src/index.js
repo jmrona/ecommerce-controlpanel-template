@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Ecommerce } from './Ecommerce';
+import { AppRouter } from './router/AppRouter';
 
 import './style/index.css'
 
 ReactDOM.render(
-    <Ecommerce />,
+    <AppRouter />,
   document.getElementById('root')
 );

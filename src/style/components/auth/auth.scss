@@ -1,0 +1,92 @@
+
+.wrapper-auth{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0B0A0F;
+}
+
+div.container-auth{
+    max-width: 400px;
+    padding: 3px;
+    
+    position: relative;
+    border-radius: 10px;
+    background: linear-gradient(30deg, #0f1011 60%, #6ba4f8 100%);
+
+    .logo{
+        place-items: center;
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+    .content{
+        background: #222;
+        color: white;
+        padding: 3px;
+
+        background: linear-gradient(30deg, #1B1A1F 60%, #3f78ce 100%);
+        border-radius: 10px;
+    }
+}
+
+div.row-auth{
+    display: inline-flex;
+    flex-flow: row wrap;
+    width: 100%;
+    padding: 0.7rem;
+}
+
+form.auth{
+    label{
+        width: 100%;
+        padding-bottom: 2px;
+        color: #eee;
+        font-weight: 400;
+    }
+
+    button.visible{
+        cursor: pointer;
+        background-color: transparent;
+        border: 0;
+
+        position: relative;
+        top: -22px;
+        right: -335px;
+
+        color: #3f78ce;
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    input{
+        color: #000;
+        width: 100%;
+        border-radius: 5px;
+        border: none;
+        padding: 5px;
+
+        font-weight: 600;
+
+        &:focus{
+            outline: none;
+        }
+    }
+}
+
+.auth-footer{ 
+    display: inline-flex;
+    justify-content: space-evenly;
+
+    flex: 1 1 100%;
+
+    a{
+        font-size: 0.75rem;
+        font-weight: 400;
+    }
+} 

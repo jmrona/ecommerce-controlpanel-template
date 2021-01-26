@@ -23,33 +23,51 @@
             margin-right: 15px;
             
             border-radius: 50%;
-            background-color: #505050;
+            background-color: var(--bgColorMain);
 
             i.logout{
                 font-size: 1.5rem;
-                transition: $duration ease-in-out;
+                transition: var(--duration) ease-in-out;
                 &:hover{
-                    color: $danger
+                    color: var(--danger)
                 }
             }
             
             i.notifications{
                 font-size: 1rem;
-                transition: $duration ease-in-out;
+                transition: var(--duration) ease-in-out;
                 @keyframes move {
                     0%, 100%, 50%{
                         transform: rotateZ(0deg);
                     }
-                    30%{
+                    25%{
                         transform: rotateZ(15deg);
                     }
-                    70%{
+                    75%{
                         transform: rotateZ(-15deg);
                     }
                 }
                 &:hover{
-                    animation: move 0.3s;
-                    color: #c4a05d;
+                    animation: move var(--duration-notifications);
+                    color: var(--notifications);
+                }
+                
+            }
+
+            i.light{
+                font-size: 1rem;
+                transition: var(--duration) ease-in-out;
+                &:hover{
+                    color: var(--light);
+                }
+                
+            }
+
+            i.dark{
+                font-size: 1rem;
+                transition: var(--duration) ease-in-out;
+                &:hover{
+                    color: var(--dark);
                 }
                 
             }

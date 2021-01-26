@@ -19,30 +19,30 @@ export const Sidebar = () => {
                     <p className="role">Administrador</p>
                 </div>
                 <ul>
-                    <li className="sidebar-items">
-                        <NavLink to="/" exact activeClassName="active">
+                    <NavLink to="/" exact activeClassName="active">
+                        <li className="sidebar-items">
                             <i className="fas fa-tachometer-alt"></i>
                             <span>Dashboard</span>
-                        </NavLink>
-                    </li>
-                    <li className="sidebar-items" >
-                        <NavLink to="/users" exact activeClassName="active">
-                            <i className="fas fa-users"></i>
-                            <span>Users</span>
-                        </NavLink>
-                    </li>
-                    <li className="sidebar-items" >
-                        <NavLink to="/roles" exact activeClassName="active">
-                            <i className="fas fa-scroll"></i>
-                            <span>Roles</span>
-                        </NavLink>
-                    </li>
-                    <li className="sidebar-items">
-                        <NavLink to="/products" exact activeClassName="active">
-                            <i className="fas fa-boxes"></i>
-                            <span>Products</span>
-                        </NavLink>
-                    </li>
+                        </li>
+                    </NavLink>
+                    <NavLink to="/users" exact activeClassName="active">
+                        <li className="sidebar-items" >
+                                <i className="fas fa-users"></i>
+                                <span>Users</span>
+                        </li>
+                    </NavLink>
+                    <NavLink to="/roles" exact activeClassName="active">
+                        <li className="sidebar-items" >
+                                <i className="fas fa-scroll"></i>
+                                <span>Roles</span>
+                        </li>
+                    </NavLink>
+                    <NavLink to="/products" exact activeClassName="active">
+                        <li className="sidebar-items">
+                                <i className="fas fa-boxes"></i>
+                                <span>Products</span>
+                        </li>
+                    </NavLink>
                     
                 </ul>
             </nav>

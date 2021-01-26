@@ -1,37 +1,37 @@
 div.card-border-success{
-    background: linear-gradient(35deg, #141414 60%, #39ffe5 100%);
+    background: linear-gradient(35deg, var(--card-border-black) 60%, var(--success) 100%);
     border-radius: 20px;
 }
 
 div.card-border-danger{
-    background: linear-gradient(35deg, #141414 60%, #ff988c 100%);
+    background: linear-gradient(35deg, var(--card-border-black) 60%, var(--danger) 100%);
     border-radius: 20px;
 }
 
 div.card-border-warning{
-    background: linear-gradient(35deg, #141414 60%, #f8cc8e 100%);
+    background: linear-gradient(35deg, var(--card-border-black) 60%, var(--warning) 100%);
     border-radius: 20px;
 }
 
 div.card-border-default{
-    background: linear-gradient(35deg, #141414 60%, #ffffff 100%);
+    background: linear-gradient(35deg, var(--card-border-black) 60%, var(--card-border-default) 100%);
     border-radius: 20px;
 }
 
 div.card-success{
-    background: linear-gradient(35deg, #1B1A1F 60%, $success 100%);
+    background: linear-gradient(35deg, var(--card-content-black) 60%, var(--success) 100%);
 }
 
 div.card-danger{
-    background: linear-gradient(35deg, #1B1A1F 60%, $danger 100%);
+    background: linear-gradient(35deg, var(--card-content-black) 60%, var(--danger) 100%);
 }
 
 div.card-warning{
-    background: linear-gradient(35deg, #1B1A1F 60%, $warning 100%);
+    background: linear-gradient(35deg, var(--card-content-black) 60%, var(--warning) 100%);
 }
 
 div.card-default{
-    background: linear-gradient(35deg, #1B1A1F 60%, #eee 100%);
+    background: linear-gradient(35deg, var(--card-content-black) 60%, var(--card-border-default) 100%);
 }
 
 div.card{
@@ -40,7 +40,7 @@ div.card{
     height: 100%;
     
     $border: 2px;
-    color: #FFF;
+    color: var(--colorText);
     background-clip: padding-box; /* !importanté */
     border: solid $border transparent; /* !importanté */
     border-radius: 20px;
@@ -60,14 +60,14 @@ div.card{
         .card-menu{
             position: relative;
             display: inline-block;
-            
+
             .dropdown-content {
                 position: absolute;
                 right: 10px;
 
                 display: none;
 
-                background: rgba(255, 255, 255, 0.288);
+                background: rgba(255, 255, 255, 0.603);
                 box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
                 backdrop-filter: blur( 2px );
                 -webkit-backdrop-filter: blur( 4px );
@@ -90,6 +90,8 @@ div.card{
                 place-items: center;
 
                 &:hover {background-color: rgba(221, 221, 221, 0.877);}
+
+                img, svg{width: 20px;}
             }
 
               .show {display: block;}
@@ -97,7 +99,11 @@ div.card{
     }
 
     .card-body{
-        width: 100%;
+        // width: 100%;
+
+        font-size: 0.8rem;
+        font-weight: 400;
+
     }
 
 }

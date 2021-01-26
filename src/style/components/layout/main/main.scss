@@ -19,18 +19,18 @@ main{
 
 }
 
-.col-1 {min-width: 8.33%;}
-.col-2 {min-width: 16.66%;}
-.col-3 {min-width: 25%;}
-.col-4 {min-width: 32.33%;}
-.col-5 {min-width: 41.66%;}
-.col-6 {min-width: 50%;}
-.col-7 {min-width: 58.33%;}
-.col-8 {min-width: 66.66%;}
-.col-9 {min-width: 75%;}
-.col-10 {min-width: 83.33%;}
-.col-11 {min-width: 91.66%;}
-.col-12 {min-width: 100%;}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 32.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
 
 @media only screen and (max-width: 650px){
     .col-sm-1 {min-width: 8.33%;}

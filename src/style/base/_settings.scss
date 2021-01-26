@@ -1,22 +1,78 @@
-// Colors  
-$danger: #EF796D;
-$success: #20BFA9;
-$warning:#FEB95A;
+:root{
+    //btns
+    --danger: #EF796D;
+    --danger-border: #9e4e45;
+    --danger-hover: #dd5444;
+    --danger-shadow: #b35d5369;
 
-$active: #5151da;
+    --success: #20BFA9;
+    --success-border: #126156; //#188678
+    --success-hover: #199382; //#199382
+    --success-shadow: #18867769;
 
-$primary: #FFFFFF;
-$secundary: #232228;
+    --warning: #FEB95A;
+    --warning-border: #b1813e;
+    --warning-hover: #fea327;
+    --warning-shadow: #b1813e69;
+    
+    --default: #eee;
+    --default-border: #acacac;
+    --default-hover:#dddada;
+    --default-shadow:#acacac69;
 
-$bgColorMain: #0B0A0F;
-$bgColorNav: #0C0B10;
+    --blue: #3f78ce;
+    --blue-border: #3161a8;
+    --blue-hover: #2c60ae;
+    --blue-shadow:#2b5594a4;
 
-$duration: 0.2s;
+    //cards
+    --card-border-success: #39ffe5;
+    --card-border-danger: #ff988c;
+    --card-border-warning: #f8cc8e;
+    --card-border-default: #ffffff;
+    --card-border-blue: #71a2ec;
+    
+    //Sidebar
+    --main-color: #3f78ce;
 
-@media (prefers-color-scheme: light) {
-    $primary: #14121F;
-    $secundary: #F3F3FD;
+    //navbar
+    --notifications: #b47f1d;
+    --light: #b47f1d;
+    --dark: #4754c7;
 
-    $bgColorMain: #EBEBF5;
-    $bgColorNav: #EBEBF5;
+    //animations
+    --duration: 0.3s;
+    --duration-notifications: 0.3s;
+
+    //colors
+    --black-color: #1b1b1b;
+    --white-color: #eee;
+
+}
+
+html[data-theme='dark'] {
+    --colorText: #eee;
+    --bgColorMain: #232228;
+    --bgColorNav: #0B0A0F;
+    --active:#3f78ce;
+
+    --card-content-black: #1B1A1F;
+    --card-border-black: #141414;
+    --card-content-default: #eee;
+    --card-border-default: #eee;
+
+
+}
+
+html[data-theme='light'] {
+    --colorText: #1b1b1b;
+    --bgColorMain: #c8c8c9;
+    --bgColorNav:#EBEBF5;
+    --active:#2e5896;
+
+    --card-content-black: #e2e2e2;
+    --card-border-black: #cccccc;
+    --card-content-default: #242424;
+    --card-border-default: #0f0f0f;
+
 }

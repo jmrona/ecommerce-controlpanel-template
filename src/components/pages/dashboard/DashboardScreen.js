@@ -1,10 +1,14 @@
 import React from 'react'
+import { Btn } from '../../ui/Buttons/Btn';
 
 import { Card } from '../../ui/Cards/Card'
 import { CardMenu } from '../../ui/Cards/CardMenu';
 
-export const DashboardScreen = () => {
+import { PlusIcon } from '../../ui/Icons/PlusIcon';
 
+export const DashboardScreen = () => {
+    
+    
     return (
         <div className="container">
             <div className="row">
@@ -20,11 +24,13 @@ export const DashboardScreen = () => {
                     <div className="card-header">
                         <div>Users</div>
                         <CardMenu id="1">
-                            <a href="/user_add">Add user</a>
+                            <a href="/user_add">
+                                Add user
+                            </a>
                         </CardMenu>
                     </div>
                     <div className="card-body">
-                        
+                        <p>Texto de prueba</p>
                     </div>
                 </Card>
 
@@ -33,13 +39,12 @@ export const DashboardScreen = () => {
                         <div>Categories</div>
                         <CardMenu id="2">
                             <a href="/user_add">
-                                <i className="fas fa-plus"></i>
                                 Add category
                             </a>
                         </CardMenu>
                     </div>
                     <div className="card-body">
-                        
+                        <p>Texto de prueba</p>
                     </div>
                 </Card>
 
@@ -53,11 +58,131 @@ export const DashboardScreen = () => {
                         </CardMenu>
                     </div>
                     <div className="card-body">
-                        
+                        <p>Texto de prueba</p>
                     </div>
                 </Card>
 
             </div>
+
+            <div className="row">
+                <Card color="success" title="Otro" css="flex-1 m-1" sm="12">
+                    <div className="card-header">
+                        <div>Categories</div>
+                        <CardMenu id="4">
+                            <a href="/user_add">
+                            <PlusIcon/>
+                                Add category
+                            </a>
+                        </CardMenu>
+                    </div>
+                    <div className="card-body">
+                        <p>Texto de prueba</p>
+                    </div>
+                </Card>
+            </div>
+
+            <div className="row">
+                <Btn 
+                    href="add_user" 
+                    outline 
+                    color="blue"
+                    sm="12"
+                    md="3"
+                    css="m-1"
+                >
+                    Add user
+                </Btn>
+                <Btn 
+                    href="add_user" 
+                    color="blue"
+                    sm="12"
+                    md="3"
+                    css="m-1"
+                >
+                    Add user
+                </Btn>
+                <Btn 
+                    href="add_user" 
+                    outline 
+                    color="default"
+                    sm="12"
+                    md="3"
+                    css="m-1"
+                >
+                    Add user
+                </Btn>
+                <Btn 
+                    href="add_user" 
+                    color="default"
+                    sm="12"
+                    md="3"
+                    css="m-1"
+                >
+                    Add user
+                </Btn>
+                <Btn 
+                    href="add_user" 
+                    outline 
+                    color="warning"
+                    sm="12"
+                    md="3"
+                    css="m-1"
+                >
+                    Add user
+                </Btn>
+                <Btn 
+                    href="add_user" 
+                    color="warning"
+                    sm="12"
+                    md="3"
+                    css="m-1"
+                >
+                    Add user
+                </Btn>
+                <Btn 
+                    href="add_user" 
+                    outline 
+                    color="danger"
+                    sm="12"
+                    md="3"
+                    css="m-1"
+                >
+                    Add user
+                </Btn>
+                <Btn 
+                    href="add_user" 
+                    color="danger"
+                    sm="12"
+                    md="3"
+                    css="m-1"
+                >
+                    Add user
+                </Btn>
+                <Btn 
+                    href="add_user" 
+                    outline 
+                    color="success"
+                    sm="12"
+                    md="3"
+                    css="m-1"
+                >
+                    Add user
+                </Btn>
+                <Btn 
+                    href="add_user" 
+                    color="success"
+                    sm="12"
+                    md="3"
+                    css="m-1"
+                >
+                    Add user
+                </Btn>
+            </div>
+
+            <div className="row">
+                
+            </div>
+
         </div>
     )
 }

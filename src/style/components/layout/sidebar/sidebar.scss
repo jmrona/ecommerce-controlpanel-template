@@ -36,42 +36,37 @@
         padding: 0;
 
         a.active{
-            span, i{color: $active !important;}
-
-            &::before{
+            span, i{color: var(--main-color) !important;}
+            
+            li:before{
                 content: '';
                 position: relative;
                 top: 0px;
                 left: 0px;
-                height: 100%;
+                height: 40px;
                 width: 5px;
-                background-color: $active;
+                background-color: var(--main-color);
             }
         }
         
-        li.sidebar-items{
-            display: inline-flex;
-            flex-direction: row;
-            
-            width: 100%;
-            height: 40px;
-            
-            list-style: none;
-            
-            cursor: pointer;
-            transition: $duration ease-in-out;
-            
-            &:hover{
-                background-color: #222224;
-            }
-            
-            
-            a{
-                display: flex;
+        a{
+            li.sidebar-items{
+                display: inline-flex;
                 flex-direction: row;
-                align-items: center;
+                place-items: center;
                 
-            
+                width: 100%;
+                height: 40px;
+                
+                list-style: none;
+                
+                cursor: pointer;
+                transition: var(--duration) ease-in-out;
+                
+                &:hover{
+                    background-color: var(--bgColorMain);
+                }
+
                 i{
                     font-size: 1.5rem;
                     width: 33px;
@@ -79,10 +74,7 @@
                     justify-self: center;
                     align-self: center;
                 }
-
             }
-            
         }
-        
     }
 }
