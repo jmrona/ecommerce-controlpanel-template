@@ -4,8 +4,6 @@ import { Btn } from '../../ui/Buttons/Btn';
 import { Card } from '../../ui/Cards/Card'
 import { CardMenu } from '../../ui/Cards/CardMenu';
 
-import { PlusIcon } from '../../ui/Icons/PlusIcon';
-
 export const DashboardScreen = () => {
     
     
@@ -70,7 +68,6 @@ export const DashboardScreen = () => {
                         <div>Categories</div>
                         <CardMenu id="4">
                             <a href="/user_add">
-                            <PlusIcon/>
                                 Add category
                             </a>
                         </CardMenu>

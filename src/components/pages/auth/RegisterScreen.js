@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
-import { Btn } from '../../ui/Buttons/Btn';
+
+import { useDispatch } from 'react-redux';
+import { useForm } from '../../../hooks/useForm';
+import { startRegister } from '../../../actions/auth';
+import { BtnSubmit } from '../../ui/Buttons/BtnSubmit';
 
 export const RegisterScreen = () => {
     const [visible, setVisible] = useState(false);
@@ -8,6 +12,22 @@ export const RegisterScreen = () => {
         e.preventDefault();
         setVisible(!visible);
     }
+
+    const [ formRegisterValues, handleRegisterInputChange] = useForm({
+        name: 'Jose',
+        lastname: 'Romero Navarro',
+        email: 'jm_rona@hotmail.com',
+        password: 'Blackwhite991'
+    });
+
+    const { name, lastname, email, password } = formRegisterValues;
+    const dispatch = useDispatch();
+    
+    const handleRegister = (e) => {
+        e.preventDefault();
+        dispatch(startRegister( name, lastname, email, password ));
+    }
+
     return (
         <div className="wrapper-auth">
             <div className="container-auth">
@@ -15,22 +35,22 @@ export const RegisterScreen = () => {
                     <div className="logo">
                         JMRONA
                     </div>
-                    <form className="auth">
+                    <form className="auth" onSubmit={ handleRegister }>
                         <div className="row-auth">
                             <label htmlFor="name">Name:</label>
-                            <input type="text" name="name"/>
+                            <input type="text" name="name" value={name} onChange={handleRegisterInputChange}/>
                         </div>
                         <div className="row-auth">
                             <label htmlFor="lastname">Lastname:</label>
-                            <input type="text" name="lastname"/>
+                            <input type="text" name="lastname" value={lastname} onChange={handleRegisterInputChange}/>
                         </div>
                         <div className="row-auth">
                             <label htmlFor="email">Email:</label>
-                            <input type="text" name="email"/>
+                            <input type="text" name="email" value={email} onChange={handleRegisterInputChange}/>
                         </div>
                         <div className="row-auth">
                             <label htmlFor="password">Password:</label>
-                            <input type={ visible ? "text" : "password"} name="password"/>
+                            <input type={ visible ? "text" : "password"} name="password" value={password} onChange={handleRegisterInputChange}/>
                             <button className="visible" onClick={isVisible}>
                                 {
                                     visible 
@@ -40,9 +60,9 @@ export const RegisterScreen = () => {
                             </button>
                         </div>
                         <div className="row-auth justify-content">
-                            <Btn href="#" outline color="blue" sm="10" md="10" css="">
+                            <BtnSubmit outline color="blue" sm="10" md="10" css="">
                                 Register
-                            </Btn> 
+                            </BtnSubmit>
                         </div>
                         <div className="row-auth">
                             <div className="auth-footer">

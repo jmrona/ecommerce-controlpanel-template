@@ -1,22 +1,22 @@
 import React from 'react'
-import { BtnSubmit } from '../../ui/Buttons/BtnSubmit'
-import { useForm } from '../../../hooks/useForm';
-import { startRecover } from '../../../actions/auth';
 import { useDispatch } from 'react-redux';
+import { useParams } from "react-router-dom";
+import { startResetPassword } from '../../../actions/auth';
+import { useForm } from '../../../hooks/useForm';
+import { BtnSubmit } from '../../ui/Buttons/BtnSubmit';
 
-
-export const RecoverScreen = () => {
-
-    const [ formRecover, handleRecoverInputChange] = useForm({
-        email: 'jm_rona@hotmail.com'
+export const ResetPassword = () => {
+    const [ formReset, handleResetInputChange] = useForm({
+        code: ''
     });
+    const {code} = formReset;
 
-    const { email } = formRecover;
+    const {email} = useParams()
     const dispatch = useDispatch();
 
-    const handleRecover = (e) => {
+    const handleResetPassword = (e) => {
         e.preventDefault();
-        dispatch(startRecover( email ));
+        dispatch(startResetPassword( email, code ));
     }
 
     return (
@@ -26,14 +26,14 @@ export const RecoverScreen = () => {
                     <div className="logo">
                         JMRONA
                     </div>
-                    <form className="auth" method="POST" onSubmit={handleRecover}>
+                    <form className="auth" method="POST" onSubmit={handleResetPassword}>
                         <div className="row-auth">
-                            <label htmlFor="email">Email:</label>
+                            <label htmlFor="Code">Code:</label>
                             <input 
                                 type="text" 
-                                name="email" 
-                                value={email}
-                                onChange={handleRecoverInputChange}
+                                name="code" 
+                                value={code}
+                                onChange={handleResetInputChange}
                             />
                         </div>
                         <div className="row-auth justify-content">

@@ -1,26 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-export const Btn = ({href, outline, block, color, children, sm, md, css}) => {
+export const BtnSubmit = ({href, outline, block, color, children, sm, md, css}) => {
     return (
         <a href={href} className={"btn-flex col-"+md+" col-sm-"+sm}>
             {
                 (!outline)
                 ?
-                <div className={"btn btn-"+color +" "+css}>
+                <button type="submit" className={"btn btn-"+color +" "+css}>
                     {children}
-                </div>
+                </button>
                 :
-                <div className={"btn btn-outline-"+color +" "+css}>
+                <button type="submit" className={"btn btn-outline-"+color +" "+css}>
                     {children}
-                </div>
+                </button>
             }
             
         </a>
     )
 }
 
-Btn.propTypes = {
+BtnSubmit.propTypes = {
     href: PropTypes.string,
     outline: PropTypes.bool,
     sm: PropTypes.oneOf(['1','2','3','4','5','6','7','8','9','10','11','12']).isRequired, 

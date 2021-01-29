@@ -1,38 +1,35 @@
 import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+
 import { NavLink } from 'react-router-dom'
+import { startLogout } from '../../actions/auth';
+import { uisetTheme } from '../../actions/ui';
 
 
 export const NavBar = () => {
     const [darkMode, setDarkMode] = useState(true);
-
-    const checkTheme = () => {
-        let localStorageTheme = localStorage.getItem('data-theme');
-        if(!localStorageTheme){
-            localStorage.setItem('data-theme', 'dark');
-            document.documentElement.setAttribute('data-theme', 'dark')
-            setDarkMode(true);
-        }
-    }
+    const dispatch = useDispatch()
+    const {theme} = useSelector(state => state.ui)
 
     useEffect(() => {
-        checkTheme();
-        
-        const theme = document.documentElement.getAttribute('data-theme');
-        localStorage.setItem('data-theme', theme)
+        if(darkMode){
+            document.documentElement.setAttribute('data-theme', 'dark')
+            dispatch(uisetTheme('dark'))
+        }else if(!darkMode){
+            document.documentElement.setAttribute('data-theme', 'light')
+            dispatch(uisetTheme('light'))
+        }
+    }, [darkMode])
 
-    }, [document.documentElement.getAttribute('data-theme')])
-
-    const darkTheme = () =>{
-        darkMode 
-        ? document.documentElement.setAttribute('data-theme', 'dark')
-        : document.documentElement.setAttribute('data-theme', 'light')
+    const handleLogout = () => {
+        dispatch(startLogout());
     }
 
     return (
         <div className="navbar">
             <nav>
                 <ul>
-                    <li onClick={()=>setDarkMode(!darkMode)} onChange={darkTheme()}>
+                    <li onClick={()=>setDarkMode(!darkMode)}>
                         <NavLink to="#">
                             {
                                 (darkMode)
@@ -47,9 +44,9 @@ export const NavBar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/logout">
+                        <a onClick={ handleLogout }>
                             <i className="fas fa-power-off logout"></i>
-                        </NavLink>
+                        </a>
                     </li>
                 </ul>
             </nav>

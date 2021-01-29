@@ -1,11 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-export const Sidebar = () => {
-    // let {pathname} = useLocation();
-    // pathname = pathname.split("_")[0];
-    // console.log(pathname)
+import { useSelector } from 'react-redux';
 
+export const Sidebar = () => {
+
+    const {name = "Prueba"} = useSelector(state => state.auth)
 
     return (
         <div className="sidebar">
@@ -15,7 +15,7 @@ export const Sidebar = () => {
                 </div>
                 <div className="profile">
                     <i className="fas fa-user-circle avatar"></i>
-                    <p className="name">Jose Romero</p>
+                    <p className="name">{name}</p>
                     <p className="role">Administrador</p>
                 </div>
                 <ul>

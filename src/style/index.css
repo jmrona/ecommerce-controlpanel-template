@@ -942,7 +942,7 @@ a.btn-flex {
   text-align: center;
 }
 
-a.btn-flex .btn {
+a.btn-flex button, a.btn-flex .btn {
   padding: 12px 20px;
   line-height: 120%;
   font-weight: 500;
@@ -973,6 +973,7 @@ a.btn-flex .btn {
 
 .btn-outline-success {
   color: var(--colorText);
+  background: transparent;
   border: 1px solid var(--success-border);
   -webkit-transition: var(--duration) ease-out;
   transition: var(--duration) ease-out;
@@ -999,6 +1000,7 @@ a.btn-flex .btn {
 
 .btn-outline-danger {
   color: var(--colorText);
+  background: transparent;
   border: 1px solid var(--danger-border);
   -webkit-transition: var(--duration) ease-out;
   transition: var(--duration) ease-out;
@@ -1025,6 +1027,7 @@ a.btn-flex .btn {
 
 .btn-outline-warning {
   color: var(--colorText);
+  background: transparent;
   border: 1px solid var(--warning-border);
   -webkit-transition: var(--duration) ease-out;
   transition: var(--duration) ease-out;
@@ -1052,6 +1055,7 @@ a.btn-flex .btn {
 
 .btn-outline-default {
   color: var(--colorText);
+  background: transparent;
   border: 1px solid var(--default-border);
   -webkit-transition: var(--duration) ease-out;
   transition: var(--duration) ease-out;
@@ -1079,6 +1083,7 @@ a.btn-flex .btn {
 
 .btn-outline-blue {
   color: var(--colorText);
+  background: transparent;
   border: 1px solid var(--blue-border);
   -webkit-transition: var(--duration) ease-out;
   transition: var(--duration) ease-out;
@@ -1088,6 +1093,14 @@ a.btn-flex .btn {
   background: var(--blue-hover);
   -webkit-box-shadow: 0 5px 10px 5px var(--blue-shadow);
           box-shadow: 0 5px 10px 5px var(--blue-shadow);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  outline: none;
 }
 
 @media only screen and (max-width: 650px) {
