@@ -78,7 +78,7 @@ export const startResetPassword = (email, code, newPassword) => {
         const resp = await fetchSinToken( 'reset', {email, code, newPassword}, 'POST');
         const body = await resp.json();
         if(body.ok){
-            Swal.fire('Success', body.msg, 'Password reseted, check you email')
+            Swal.fire('Success', body.msg, 'success')
         }
     }
 }

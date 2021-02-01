@@ -4,9 +4,7 @@ import { useForm } from '../../../hooks/useForm';
 import { startRecover } from '../../../actions/auth';
 import { useDispatch } from 'react-redux';
 
-
-export const RecoverScreen = () => {
-
+export const RecoverScreen = ({history}) => {
     const [ formRecover, handleRecoverInputChange] = useForm({
         email: 'jm_rona@hotmail.com'
     });
@@ -16,7 +14,8 @@ export const RecoverScreen = () => {
 
     const handleRecover = (e) => {
         e.preventDefault();
-        dispatch(startRecover( email ));
+        dispatch(startRecover( email ))
+        history.push('/reset/'+email)
     }
 
     return (

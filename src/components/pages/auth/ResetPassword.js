@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { startResetPassword } from '../../../actions/auth';
 import { useForm } from '../../../hooks/useForm';
 import { BtnSubmit } from '../../ui/Buttons/BtnSubmit';
 
-export const ResetPassword = () => {
+export const ResetPassword = ({history}) => {
 
     const [visible, setVisible] = useState(false);
     
@@ -22,11 +22,11 @@ export const ResetPassword = () => {
 
     const {email} = useParams()
     const dispatch = useDispatch();
-    const history = useHistory;
+
     const handleResetPassword = (e) => {
         e.preventDefault();
         dispatch(startResetPassword( email, code, newPassword ));
-        history.pushState('/');
+        history.push('/login');
     }
 
     return (
