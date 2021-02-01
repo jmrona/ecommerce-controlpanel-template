@@ -6,7 +6,7 @@ export const fetchSinToken = ( endpoint, data, method = 'GET') => {
     if( method === 'GET'){
         return fetch( url , { 
             method,
-            credentials: 'include',
+            // credentials: 'include',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ export const fetchSinToken = ( endpoint, data, method = 'GET') => {
     } else {
         return fetch(url, {
             method,
-            credentials: 'include',
+            // credentials: 'include',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
@@ -30,13 +30,14 @@ export const fetchSinToken = ( endpoint, data, method = 'GET') => {
 export const fetchConToken = ( endpoint, data, method = 'GET') => {
     const url = `${baseUrl}/${endpoint}`; //localhost:4000/api/auth
     const token = localStorage.getItem('token') || '';
-
     if( method === 'GET'){
         return fetch( url, {
             method,
             mode: 'cors',
-            credentials: 'include',
+            // credentials: 'include',
             headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
                 'Authorization': 'Bearer '+token
             }
         } );
@@ -44,9 +45,10 @@ export const fetchConToken = ( endpoint, data, method = 'GET') => {
         return fetch(url, {
             method,
             mode: 'cors',
-            credentials: 'include',
+            // credentials: 'include',
             headers: {
-                'Content-type': 'application/json',
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
                 'Authorization': 'Bearer '+token
             },
             body: JSON.stringify(data)

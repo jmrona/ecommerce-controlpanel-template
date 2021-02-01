@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Redirect, Switch, BrowserRouter as Router, } from 'react-router-dom'
+import { startChecking } from '../actions/auth'
 
 import { LoginScreen } from '../components/pages/auth/LoginScreen'
 import { RecoverScreen } from '../components/pages/auth/RecoverScreen'
@@ -10,13 +11,29 @@ import { Ecommerce } from '../Ecommerce'
 import { PrivateRoute } from './PrivateRouter'
 import { PublicRoute } from './PublicRouter'
 
+
 export const AppRouter = () => {
     const { token } = useSelector(state => state.token);
+    const { checking } = useSelector(state => state.auth);
 
+    const dispatch = useDispatch();
     useEffect(() => {
-        
-    }, [token])
+        dispatch( startChecking() )
+    }, [dispatch])
     
+    if( checking ){
+        return (
+            <div className="wrapper-auth">
+                <div className="loadingScreen" style={{ color: 'white'}}>
+                    <div class="lds-roller">
+                        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    </div>
+                    <h2>Loading...</h2>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <Router>
             <Switch>

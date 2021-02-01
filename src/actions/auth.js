@@ -67,19 +67,39 @@ export const startRecover = (email) => {
     return async(dispatch) => {
         const resp = await fetchSinToken( 'recover', {email}, 'POST');
         const body = await resp.json();
-        console.log(body)
         if(body.ok){
             Swal.fire('Success', body.msg, 'success')
         }
     }
 }
 
-export const startResetPassword = (email, code) => {
+export const startResetPassword = (email, code, newPassword) => {
     return async (dispatch) => {
-        const resp = await fetchSinToken( 'reset', {email, code}, 'POST');
+        const resp = await fetchSinToken( 'reset', {email, code, newPassword}, 'POST');
         const body = await resp.json();
         if(body.ok){
             Swal.fire('Success', body.msg, 'Password reseted, check you email')
         }
     }
 }
+
+export const startChecking = () =>{
+    return async(dispatch) => {
+        const resp = await fetchConToken('renew');
+        const body = await resp.json();
+        if( body.ok ){
+            localStorage.setItem('token', body.token);
+            localStorage.setItem('token-init-date', new Date().getTime());
+
+            dispatch( login({
+                user: body.user
+            }) );
+            dispatch(saveToken(body.token));
+
+        } else {
+            dispatch( checkingFinish() );
+        }
+    }
+}
+
+const checkingFinish = () => ({ type: types.authCheckingFinish });

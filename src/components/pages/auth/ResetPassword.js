@@ -1,22 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { startResetPassword } from '../../../actions/auth';
 import { useForm } from '../../../hooks/useForm';
 import { BtnSubmit } from '../../ui/Buttons/BtnSubmit';
 
 export const ResetPassword = () => {
+
+    const [visible, setVisible] = useState(false);
+    
+    const isVisible = (e) =>{
+        e.preventDefault();
+        setVisible(!visible);
+    }
+
     const [ formReset, handleResetInputChange] = useForm({
-        code: ''
+        code: '',
+        newPassword: ''
     });
-    const {code} = formReset;
+    const {code, newPassword} = formReset;
 
     const {email} = useParams()
     const dispatch = useDispatch();
-
+    const history = useHistory;
     const handleResetPassword = (e) => {
         e.preventDefault();
-        dispatch(startResetPassword( email, code ));
+        dispatch(startResetPassword( email, code, newPassword ));
+        history.pushState('/');
     }
 
     return (
@@ -35,6 +45,21 @@ export const ResetPassword = () => {
                                 value={code}
                                 onChange={handleResetInputChange}
                             />
+                        </div>
+                        <div className="row-auth">
+                            <label htmlFor="newPassword">New password:</label>
+                            <input type={ visible ? "text" : "password"} 
+                                name="newPassword" 
+                                value={newPassword}
+                                onChange={handleResetInputChange}
+                                />
+                            <button className="visible" onClick={isVisible}>
+                                {
+                                    visible 
+                                    ? <i className="far fa-eye"></i>
+                                    : <i className="far fa-eye-slash"></i>
+                                }
+                            </button>
                         </div>
                         <div className="row-auth justify-content">
                             <BtnSubmit outline color="blue" sm="10" md="10" css="">
