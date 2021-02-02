@@ -1,25 +1,32 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react'
+import { useDispatch } from 'react-redux';
 
 import { NavLink } from 'react-router-dom'
 import { startLogout } from '../../actions/auth';
-import { uisetTheme } from '../../actions/ui';
-
 
 export const NavBar = () => {
-    const [darkMode, setDarkMode] = useState(true);
-    const dispatch = useDispatch()
-    const {theme} = useSelector(state => state.ui)
+    
+    // DarkMode
+    let dataTheme = localStorage.getItem('data-theme');
 
-    useEffect(() => {
-        if(darkMode){
-            document.documentElement.setAttribute('data-theme', 'dark')
-            dispatch(uisetTheme('dark'))
-        }else if(!darkMode){
-            document.documentElement.setAttribute('data-theme', 'light')
-            dispatch(uisetTheme('light'))
-        }
-    }, [darkMode])
+    const enableDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        localStorage.setItem('data-theme', 'dark')
+    }
+    
+    const disableDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        localStorage.setItem('data-theme', 'light')
+    }
+    
+    const darkModeToggle = () => {
+        dataTheme = localStorage.getItem('data-theme');
+        (dataTheme !== 'dark')
+        ? enableDarkMode()
+        : disableDarkMode()
+    }
+    // Fin Dark mode
+    const dispatch = useDispatch()
 
     const handleLogout = () => {
         dispatch(startLogout());
@@ -29,13 +36,9 @@ export const NavBar = () => {
         <div className="navbar">
             <nav>
                 <ul>
-                    <li onClick={()=>setDarkMode(!darkMode)}>
-                        <NavLink to="#">
-                            {
-                                (darkMode)
-                                ?<i className="fas fa-sun light"></i>
-                                :<i className="fas fa-moon dark"></i>
-                            }
+                    <li>
+                        <NavLink to="#" onClick={darkModeToggle}>
+                            <i className="fas fa-fill-drip"></i>
                         </NavLink>
                     </li>
                     <li>
@@ -44,9 +47,9 @@ export const NavBar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <a onClick={ handleLogout }>
+                        <NavLink to="#" onClick={ handleLogout }>
                             <i className="fas fa-power-off logout"></i>
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
             </nav>

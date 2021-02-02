@@ -54,7 +54,8 @@ export const startLogout = () => {
         const body = await resp.json();
 
         if(body.ok){
-            localStorage.clear();
+            localStorage.removeItem('token');
+            localStorage.removeItem('token-init-date');
             dispatch( deleteToken() );
             dispatch( logout() );
         }

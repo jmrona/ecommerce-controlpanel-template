@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #0B0A0F;
+    background-color: var(--bgColorNav);
 }
 
 div.container-auth{
@@ -15,7 +15,7 @@ div.container-auth{
     
     position: relative;
     border-radius: 10px;
-    background: linear-gradient(30deg, #0f1011 60%, #6ba4f8 100%);
+    background: linear-gradient(30deg, var(--card-border-black) 60%, var(--card-border-blue) 100%);
 
     .logo{
         place-items: center;
@@ -24,11 +24,10 @@ div.container-auth{
     }
 
     .content{
-        background: #222;
-        color: white;
+        color: var(--colorText);
         padding: 3px;
 
-        background: linear-gradient(30deg, #1B1A1F 60%, #3f78ce 100%);
+        background: linear-gradient(30deg, var(--card-content-black) 60%, var(--blue) 100%);
         border-radius: 10px;
     }
 }
@@ -44,7 +43,7 @@ form.auth{
     label{
         width: 100%;
         padding-bottom: 2px;
-        color: #eee;
+        color: var(--colorText);
         font-weight: 400;
     }
 
@@ -57,7 +56,7 @@ form.auth{
         top: -22px;
         right: -335px;
 
-        color: #3f78ce;
+        color: var(--main-color);
 
         &:focus{
             outline: none;
@@ -65,7 +64,7 @@ form.auth{
     }
 
     input{
-        color: #000;
+        color: var(--black-color);
         width: 100%;
         border-radius: 5px;
         border: none;

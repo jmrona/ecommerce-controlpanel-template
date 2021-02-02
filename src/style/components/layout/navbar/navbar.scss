@@ -53,24 +53,6 @@
                 }
                 
             }
-
-            i.light{
-                font-size: 1rem;
-                transition: var(--duration) ease-in-out;
-                &:hover{
-                    color: var(--light);
-                }
-                
-            }
-
-            i.dark{
-                font-size: 1rem;
-                transition: var(--duration) ease-in-out;
-                &:hover{
-                    color: var(--dark);
-                }
-                
-            }
         }
     }
 }

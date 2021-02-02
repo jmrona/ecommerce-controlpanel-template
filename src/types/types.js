@@ -2,7 +2,6 @@ export const types = {
     // UI
     uiOpenModal: '[ui] Open Modal',
     uiCloseModal: '[ui] Close Modal',
-    uiSetTheme: '[ui] Set theme',
 
     // Auth
     authCheckingFinish: '[auth] Finish checking login state',

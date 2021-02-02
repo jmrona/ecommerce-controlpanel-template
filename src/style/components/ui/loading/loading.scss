@@ -5,6 +5,7 @@
 
   h2{
     margin-top: 1rem;
+    color: var(--colorText)
   }
 }
 
@@ -25,7 +26,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #fff;
+    background: var(--colorText);
     margin: -4px 0 0 -4px;
   }
   .lds-roller div:nth-child(1) {

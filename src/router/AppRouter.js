@@ -17,15 +17,25 @@ export const AppRouter = () => {
     const { checking } = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
+
+    //DarkMode
+    let dataTheme = localStorage.getItem('data-theme');
+
     useEffect(() => {
-        dispatch( startChecking() )
-    }, [dispatch])
+        dispatch( startChecking() );
+
+        //DarkMode
+        (dataTheme === 'dark')
+        ? document.documentElement.setAttribute('data-theme', 'dark')
+        : document.documentElement.setAttribute('data-theme', 'light');
+
+    }, [dispatch, dataTheme])
     
     if( checking ){
         return (
             <div className="wrapper-auth">
                 <div className="loadingScreen" style={{ color: 'white'}}>
-                    <div class="lds-roller">
+                    <div className="lds-roller">
                         <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
                     </div>
                     <h2>Loading...</h2>

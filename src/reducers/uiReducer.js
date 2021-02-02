@@ -1,12 +1,9 @@
 import { types } from "../types/types";
 
 
-
 const initialState = {
-    modalOpen: false,
-    theme: ''
+    modalOpen: false
 }
-
 
 
 export const uiReducer = ( state = initialState, action ) => {
@@ -21,12 +18,6 @@ export const uiReducer = ( state = initialState, action ) => {
             return {
                 ...state,
                 modalOpen: false
-            }
-
-        case types.uiSetTheme:
-            return {
-                ...state,
-                theme: action.payload
             }
     
         default:
