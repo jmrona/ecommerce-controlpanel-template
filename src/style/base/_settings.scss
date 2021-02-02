@@ -61,7 +61,8 @@ html[data-theme='dark'] {
     --card-content-default: #eee;
     --card-border-default: #eee;
 
-
+    //DateComponents
+    --opacity: 0.5;
 }
 
 html[data-theme='light'] {
@@ -75,4 +76,6 @@ html[data-theme='light'] {
     --card-content-default: #242424;
     --card-border-default: #0f0f0f;
 
+    //DateComponents
+    --opacity: 1;
 }

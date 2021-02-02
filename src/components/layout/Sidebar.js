@@ -43,6 +43,12 @@ export const Sidebar = () => {
                                 <span>Products</span>
                         </li>
                     </NavLink>
+                    <NavLink to="/tools" exact>
+                        <li className="sidebar-items">
+                                <i className="fas fa-tools"></i>
+                                <span>Tools</span>
+                        </li>
+                    </NavLink>
                     
                 </ul>
             </nav>

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAA;EACV,OAAO,EAAE,cAAc;EACvB,UAAU,EAAE,IAAI;EAChB,SAAS,EAAE,MAAM;CACpB",
+    "sources": [
+        "dateComponent.scss"
+    ],
+    "names": [],
+    "file": "dateComponent.css"
+}

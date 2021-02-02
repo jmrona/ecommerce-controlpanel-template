@@ -3,6 +3,7 @@ import { Btn } from '../../ui/Buttons/Btn';
 
 import { Card } from '../../ui/Cards/Card'
 import { CardMenu } from '../../ui/Cards/CardMenu';
+import { DateComponent } from '../shared/DateComponent';
 
 export const DashboardScreen = () => {
     
@@ -12,6 +13,7 @@ export const DashboardScreen = () => {
             <div className="row">
                 <div className="col-12">
                     <h1>Dashboard</h1>
+                    <DateComponent/>
                 </div>
             </div>
             <div className="flex-break"></div>

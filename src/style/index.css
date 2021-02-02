@@ -45,6 +45,7 @@ html[data-theme='dark'] {
   --card-border-black: #141414;
   --card-content-default: #eee;
   --card-border-default: #eee;
+  --opacity: 0.5;
 }
 
 html[data-theme='light'] {
@@ -56,6 +57,7 @@ html[data-theme='light'] {
   --card-border-black: #cccccc;
   --card-content-default: #242424;
   --card-border-default: #0f0f0f;
+  --opacity: 1;
 }
 
 * {
@@ -583,26 +585,6 @@ form.auth input:focus {
   -webkit-animation: move var(--duration-notifications);
           animation: move var(--duration-notifications);
   color: var(--notifications);
-}
-
-.navbar ul li a i.light {
-  font-size: 1rem;
-  -webkit-transition: var(--duration) ease-in-out;
-  transition: var(--duration) ease-in-out;
-}
-
-.navbar ul li a i.light:hover {
-  color: var(--light);
-}
-
-.navbar ul li a i.dark {
-  font-size: 1rem;
-  -webkit-transition: var(--duration) ease-in-out;
-  transition: var(--duration) ease-in-out;
-}
-
-.navbar ul li a i.dark:hover {
-  color: var(--dark);
 }
 
 .sidebar {
@@ -1252,5 +1234,11 @@ button:hover {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+}
+
+.dateComponent {
+  opacity: var(--opacity);
+  margin-top: -4px;
+  font-size: 0.9rem;
 }
 /*# sourceMappingURL=index.css.map */

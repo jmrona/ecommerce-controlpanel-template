@@ -87,24 +87,4 @@
           animation: move var(--duration-notifications);
   color: var(--notifications);
 }
-
-.navbar ul li a i.light {
-  font-size: 1rem;
-  -webkit-transition: var(--duration) ease-in-out;
-  transition: var(--duration) ease-in-out;
-}
-
-.navbar ul li a i.light:hover {
-  color: var(--light);
-}
-
-.navbar ul li a i.dark {
-  font-size: 1rem;
-  -webkit-transition: var(--duration) ease-in-out;
-  transition: var(--duration) ease-in-out;
-}
-
-.navbar ul li a i.dark:hover {
-  color: var(--dark);
-}
 /*# sourceMappingURL=navbar.css.map */
