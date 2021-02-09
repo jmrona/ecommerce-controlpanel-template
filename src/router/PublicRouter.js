@@ -5,6 +5,7 @@ import { Redirect, Route } from 'react-router-dom'
 
 export const PublicRoute = ({
     isAuthenticated,
+    isAdmin,
     component: Component,
     ...rest
 }) => {
@@ -12,7 +13,7 @@ export const PublicRoute = ({
     return (
         <Route { ...rest }
             component={ (props) => (
-                (!isAuthenticated) 
+                (!isAuthenticated || isAdmin === 0) 
                     ? (<Component { ...props } />)
                     : (<Redirect to="/" />)
             )}

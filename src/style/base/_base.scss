@@ -110,21 +110,29 @@ a {
 .px-auto {padding: 0 auto;}
 .py-auto {padding: auto 0;}
 
+.overflow-h{overflow: hidden;}
 
 // FLEXBOX
-.flex-break{
-    width: 100%;
-    height: 0px;
-}
+.flex-break{width: 100%;height: 0px;}
 
-.flex-1 {flex: 1 1 auto;}
+.d-flex {display: flex;}
+.flex-wrap{flex-wrap: wrap;}
+.flex-nowrap{flex-wrap: nowrap;}
+.flex-1 {flex: 1;}
 
-.justify-content{justify-content: center;}
-.justify-items{justify-items: center;}
-.justify-self{justify-self: center;}
-.align-content{align-content: center;}
-.align-items{align-items: center;}
-.align-self{align-self: center;}
+.text-center{text-align: center !important;}
+.justify-content-center{justify-content: center !important;}
+.justify-content-se{justify-content: space-evenly !important;}
+.justify-content-sb{justify-content: space-between !important;}
+.justify-content-sa{justify-content: space-around !important;}
+.justify-items-center{justify-items: center !important;}
+.justify-self-center{justify-self: center !important;}
+.align-content-center{align-content: center !important;}
+.align-items-center{align-items: center !important;}
+.align-self-center{align-self: center !important;}
+.place-content-center{place-content: center !important;}
+.place-items-center{place-items: center !important;}
+.place-self-center{place-self: center !important;}
 
 
 @media only screen and (max-width: 650px){

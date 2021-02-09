@@ -35,7 +35,7 @@ export const RecoverScreen = ({history}) => {
                                 onChange={handleRecoverInputChange}
                             />
                         </div>
-                        <div className="row-auth justify-content">
+                        <div className="row-auth justify-content-center">
                             <BtnSubmit outline color="blue" sm="10" md="10" css="">
                                 Recover password
                             </BtnSubmit>

@@ -16,4 +16,9 @@ export const types = {
     saveToken : '[token] Saved',
     updateToken : '[token] Updated',
     deleteToken : '[token] Deleted',
+
+    // Users
+    usersLoaded: '[users] Users loaded',
+    getUpdateUser: '[users] Updating user',
+    getDeleteUser: '[users] Deleting user',
 }

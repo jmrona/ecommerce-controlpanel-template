@@ -1,0 +1,198 @@
+table{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+
+    thead, tbody{
+        min-width: 100%;
+        justify-content: space-between;
+
+        tr{
+            display: inline-flex;
+            flex-flow: row nowrap;
+            width: 100%;
+            justify-content: flex-start;
+
+            th, td{
+                text-align: left;
+                overflow-wrap: break-word;
+                padding: 10px 5px;
+            }
+
+            td{
+                border-bottom: 1px solid var(--table-border-black);
+            }
+
+            th{
+                border-bottom: 2px solid var(--table-border-black);
+            }
+        }
+    }
+}
+
+.table-header{
+    display: inline-flex;
+    flex: 0 0 100%;
+    justify-content: flex-end;
+
+    text-align: left;
+    position: relative;
+    
+
+    .icon-search{
+        position: absolute;
+        color: var(--colorText);
+        opacity: 0.5;
+        top: 4px;
+        right: 6px;
+    }
+
+    .searchInput{
+        padding: 5px;
+        border: none;
+        border-bottom: 1px solid var(--table-border-black);
+
+        color: var(--colorText);
+        background: transparent;
+        opacity: 0.5;
+    
+        &::placeholder{
+            color: var(--colorText);
+            opacity: 0.5;
+        }
+    
+        &:focus{
+            color: var(--black-color);
+            background: var(--colorText);
+            border-radius: 50px;
+            opacity: 0.5;
+            outline: none;
+        }
+    }
+}
+
+.table-footer{
+    width: 100%;
+}
+
+// .pagination{
+//     display: inline-flex;
+//     border: 1px solid var(--bgColorNav);
+//     border-radius: 5px;
+//     box-shadow: 0 3px 5px  rgba(0, 0, 0, 0.63);
+
+//     button{
+//         cursor: pointer;
+//         color: var(--colorText); 
+//         background: transparent;
+//         border: none;
+//         text-align: center;
+//         font-weight: 700;
+//         width: 30px;
+//         height: 30px;
+
+//         &:last-child{
+//             border-top-right-radius: 5px;
+//             border-bottom-right-radius: 5px;
+//         }
+    
+//         &:first-child{
+//             border-top-left-radius: 5px;
+//             border-bottom-left-radius: 5px;
+//         }
+//     }
+
+// }
+
+.pagination {
+    display: flex;
+    list-style: none;
+    outline: none;
+    width: fit-content;
+}
+
+  .pagination > .active > a{
+    background-color: var(--main-color);
+    border-color: var(--table-border-black);
+    color: var(--colorText);
+}
+
+.pagination > li > a{
+    // border: 1px solid var(--table-border-black);
+    padding: 5px 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+    outline: none;
+}
+
+.pagination > li > a, .pagination > li > span{
+    color: var(--main-color);
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
+    border-radius: unset
+}
+
+.css-2b097c-container{
+    width: 120px;
+
+    &:focus{
+        outline: none;
+    }
+
+    .css-g1d714-ValueContainer:focus{
+        outline: none;
+    }
+
+    .css-yk16xz-control{
+        color: var(--black-color);
+        background-color: transparent;
+        border-width: 0px !important;
+        width: 100%;
+    }
+
+    // .css-1pahdxg-control{
+    //     color: var(--black-color);
+    //     .css-1uccc91-singleValue{
+    //         color: var(--colorText) !important;
+    //     }
+    // }
+
+    .css-1okebmr-indicatorSeparator{
+        width: 2px !important;
+        border-radius: 5px;
+        background-color: var(--main-color);
+    }
+
+    .css-tj5bde-Svg{
+        color: var(--main-color);
+    }
+
+    .css-2613qy-menu{
+        background-color: var(--bgColorNav);
+    }
+
+    .css-1uccc91-singleValue{
+        color: var(--colorText);
+    }
+}
+
+
+
+//   select{
+//       color: var(--colorText);
+//       background-color: transparent;
+
+//       font-size: 1rem;
+//       padding: 0 10px;
+//       border: none;
+
+//       &:focus{
+//           outline: none;
+//       }
+//   }

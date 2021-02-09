@@ -5,8 +5,14 @@ import { useSelector } from 'react-redux';
 
 export const Sidebar = () => {
 
-    const {name = "Prueba"} = useSelector(state => state.auth)
+    const {name = "Prueba", role} = useSelector(state => state.auth)
+    const getRole = () => {
+        if(role === 1){
+            return 'Administrator'
+        }
 
+        return 'Customer'
+    }
     return (
         <div className="sidebar">
             <nav>
@@ -16,7 +22,7 @@ export const Sidebar = () => {
                 <div className="profile">
                     <i className="fas fa-user-circle avatar"></i>
                     <p className="name">{name}</p>
-                    <p className="role">Administrador</p>
+                    <p className="role">{getRole()}</p>
                 </div>
                 <ul>
                     <NavLink to="/" exact activeClassName="active">

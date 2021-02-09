@@ -17,6 +17,15 @@ main{
         width: 100%;
     }
 
+    div.subrow{
+        display: flex;
+        flex-flow: row wrap;
+        flex: 1;
+        
+        height: fit-content;
+        width: 100%;
+    }
+
 }
 
 .col-1 {width: 8.33%;}
@@ -31,6 +40,8 @@ main{
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
+
+.h-fit{height: fit-content;}
 
 @media only screen and (max-width: 650px){
     .col-sm-1 {min-width: 8.33%;}

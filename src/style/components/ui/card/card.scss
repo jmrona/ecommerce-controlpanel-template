@@ -18,6 +18,11 @@ div.card-border-default{
     border-radius: 20px;
 }
 
+div.card-border-blue{
+    background: linear-gradient(35deg, var(--card-border-black) 60%, var(--card-border-blue) 100%);
+    border-radius: 20px;
+}
+
 div.card-success{
     background: linear-gradient(35deg, var(--card-content-black) 60%, var(--success) 100%);
 }
@@ -34,6 +39,10 @@ div.card-default{
     background: linear-gradient(35deg, var(--card-content-black) 60%, var(--card-border-default) 100%);
 }
 
+div.card-blue{
+    background: linear-gradient(35deg, var(--card-content-black) 60%, var(--blue) 100%);
+}
+
 div.card{
     padding: 20px;
     width: 100%;
@@ -44,6 +53,11 @@ div.card{
     background-clip: padding-box; /* !importanté */
     border: solid $border transparent; /* !importanté */
     border-radius: 20px;
+
+    .card-header > div {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
 
     .card-header{
         display: inline-flex;
@@ -101,9 +115,39 @@ div.card{
     .card-body{
         // width: 100%;
 
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         font-weight: 400;
+        overflow: hidden;
 
+        input{
+
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+
+            color: var(--black-color);
+
+            &:focus {
+                outline: none;
+                outline: 2px solid var(--main-color);
+                -moz-outline-radius: 5px;
+            }
+            &:disabled{
+                background: transparent;
+                color: var(--colorText)
+            }
+        }
+
+        label{font-weight: bold;}
+
+        .avatar{
+            font-size: 10rem;
+            margin: 1rem 0;
+        }
     }
 
+    .active-user, .banned-user{
+        font-size: 5rem;
+        margin: 0;
+    }
 }

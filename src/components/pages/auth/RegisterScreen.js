@@ -14,10 +14,10 @@ export const RegisterScreen = () => {
     }
 
     const [ formRegisterValues, handleRegisterInputChange] = useForm({
-        name: 'Jose',
-        lastname: 'Romero Navarro',
-        email: 'jm_rona@hotmail.com',
-        password: 'Blackwhite991'
+        name: '',
+        lastname: '',
+        email: '',
+        password: ''
     });
 
     const { name, lastname, email, password } = formRegisterValues;
@@ -59,7 +59,7 @@ export const RegisterScreen = () => {
                                 }
                             </button>
                         </div>
-                        <div className="row-auth justify-content">
+                        <div className="row-auth justify-content-center">
                             <BtnSubmit outline color="blue" sm="10" md="10" css="">
                                 Register
                             </BtnSubmit>

@@ -16,8 +16,8 @@ export const LoginScreen = () => {
     }
 
     const [ formLoginValues, handleLoginInputChange] = useForm({
-        email: 'jm_rona@hotmail.com',
-        password: 'Blackwhite991'
+        email: '',
+        password: ''
     });
 
     const { email, password } = formLoginValues;
@@ -60,7 +60,7 @@ export const LoginScreen = () => {
                                 }
                             </button>
                         </div>
-                        <div className="row-auth justify-content">
+                        <div className="row-auth justify-content-center">
                             <BtnSubmit outline color="blue" sm="10" md="10" css="">
                                 Login
                             </BtnSubmit>

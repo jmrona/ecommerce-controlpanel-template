@@ -1,0 +1,183 @@
+table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  width: 100%;
+}
+
+table thead, table tbody {
+  min-width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+table thead tr, table tbody tr {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  width: 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+table thead tr th, table thead tr td, table tbody tr th, table tbody tr td {
+  text-align: left;
+  overflow-wrap: break-word;
+  padding: 10px 5px;
+}
+
+table thead tr td, table tbody tr td {
+  border-bottom: 1px solid var(--table-border-black);
+}
+
+table thead tr th, table tbody tr th {
+  border-bottom: 2px solid var(--table-border-black);
+}
+
+.table-header {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-align: left;
+  position: relative;
+}
+
+.table-header .icon-search {
+  position: absolute;
+  color: var(--colorText);
+  opacity: 0.5;
+  top: 4px;
+  right: 6px;
+}
+
+.table-header .searchInput {
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid var(--table-border-black);
+  color: var(--colorText);
+  background: transparent;
+  opacity: 0.5;
+}
+
+.table-header .searchInput::-webkit-input-placeholder {
+  color: var(--colorText);
+  opacity: 0.5;
+}
+
+.table-header .searchInput:-ms-input-placeholder {
+  color: var(--colorText);
+  opacity: 0.5;
+}
+
+.table-header .searchInput::-ms-input-placeholder {
+  color: var(--colorText);
+  opacity: 0.5;
+}
+
+.table-header .searchInput::placeholder {
+  color: var(--colorText);
+  opacity: 0.5;
+}
+
+.table-header .searchInput:focus {
+  color: var(--black-color);
+  background: var(--colorText);
+  border-radius: 50px;
+  opacity: 0.5;
+  outline: none;
+}
+
+.table-footer {
+  width: 100%;
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  outline: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.pagination > .active > a {
+  background-color: var(--main-color);
+  border-color: var(--table-border-black);
+  color: var(--colorText);
+}
+
+.pagination > li > a {
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+  outline: none;
+}
+
+.pagination > li > a, .pagination > li > span {
+  color: var(--main-color);
+}
+
+.pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span {
+  border-radius: unset;
+}
+
+.css-2b097c-container {
+  width: 120px;
+}
+
+.css-2b097c-container:focus {
+  outline: none;
+}
+
+.css-2b097c-container .css-g1d714-ValueContainer:focus {
+  outline: none;
+}
+
+.css-2b097c-container .css-yk16xz-control {
+  color: var(--black-color);
+  background-color: transparent;
+  border-width: 0px !important;
+  width: 100%;
+}
+
+.css-2b097c-container .css-1okebmr-indicatorSeparator {
+  width: 2px !important;
+  border-radius: 5px;
+  background-color: var(--main-color);
+}
+
+.css-2b097c-container .css-tj5bde-Svg {
+  color: var(--main-color);
+}
+
+.css-2b097c-container .css-2613qy-menu {
+  background-color: var(--bgColorNav);
+}
+
+.css-2b097c-container .css-1uccc91-singleValue {
+  color: var(--colorText);
+}
+/*# sourceMappingURL=table.css.map */

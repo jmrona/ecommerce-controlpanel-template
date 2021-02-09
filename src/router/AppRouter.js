@@ -14,7 +14,7 @@ import { PublicRoute } from './PublicRouter'
 
 export const AppRouter = () => {
     const { token } = useSelector(state => state.token);
-    const { checking } = useSelector(state => state.auth);
+    const { checking, role} = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
 
@@ -52,24 +52,28 @@ export const AppRouter = () => {
                     path="/login" id
                     component={LoginScreen}
                     isAuthenticated={ !!token }
+                    isAdmin={role}
                 />
                 <PublicRoute 
                     exact 
                     path="/register" 
                     component={RegisterScreen}
                     isAuthenticated={ !!token }
+                    isAdmin={role}
                 />
                 <PublicRoute 
                     exact 
                     path="/recover" 
                     component={RecoverScreen}
                     isAuthenticated={ !!token }
+                    isAdmin={role}
                 />
                 <PublicRoute 
                     exact 
                     path="/reset/:email" 
                     component={ResetPassword}
                     isAuthenticated={ !!token }
+                    isAdmin={role}
                 />
 
                 <PrivateRoute
@@ -77,6 +81,7 @@ export const AppRouter = () => {
                     path="/"
                     component={Ecommerce}
                     isAuthenticated={ !!token }
+                    isAdmin={role}
                 />
                 <Redirect to="/"/>
             </Switch>
