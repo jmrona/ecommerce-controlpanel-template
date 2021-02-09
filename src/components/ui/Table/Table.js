@@ -15,52 +15,34 @@ export const Table = ({columns, data:users}) => {
     const handleInputChange = (e) => {
         setSearchInput(e.target.value)
     }
-    
+
     useEffect(() => {
-        const slice = users.slice(offset, offset + perPage)
         if( searchInput !== ''){
-            const usersSearch = users.filter( user => user.email.includes(searchInput)).slice(offset, offset + perPage)
-            const postDatafiltered = usersSearch.map( pdf => 
-                <tr key={pdf.id}>
-                    <td className="col-2">{pdf.name}</td>
-                    <td className="col-2">{pdf.lastname}</td>
-                    <td className="col-2">{pdf.email}</td>
-                    <td className="col-2">{pdf.role_id}</td>
-                    <td className="col-2">{pdf.status}</td>
-                    <td className="col-2">{ dayjs(pdf.update_at).format('DD/MM/YYYY')}</td>
-                    <td className="col-1">
-                        <button>
-                            <i className="fas fa-pen"></i>
-                        </button>
-                        <button>
-                            <i className="fas fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-            );
-            setData(postDatafiltered)
+            var slice = users.filter( user => user.email.includes(searchInput)).slice(offset, offset + perPage)
+            setPageCount(Math.ceil(users.includes(searchInput).length / perPage))
         }else{
-            const postData = slice.map (pd => 
-                <tr key={pd.id}>
-                    <td className="col-2">{pd.name}</td>
-                    <td className="col-2">{pd.lastname}</td>
-                    <td className="col-2">{pd.email}</td>
-                    <td className="col-2">{pd.role_id}</td>
-                    <td className="col-2">{pd.status}</td>
-                    <td className="col-2">{ dayjs(pd.update_at).format('DD/MM/YYYY')}</td>
-                    <td className="col-1">
-                        <button>
-                            <i className="fas fa-pen"></i>
-                        </button>
-                        <button>
-                            <i className="fas fa-trash"></i>
-                        </button>
-                    </td>
-                </tr>
-            );
-            setData(postData)
+            var slice = users.slice(offset, offset + perPage)
+            setPageCount(Math.ceil(users.length / perPage))
         }
-        setPageCount(Math.ceil(users.length / perPage))
+        const postData = slice.map( pd => 
+            <tr key={pd.id}>
+                <td className="col-2">{pd.name}</td>
+                <td className="col-2">{pd.lastname}</td>
+                <td className="col-2">{pd.email}</td>
+                <td className="col-2">{pd.role_id}</td>
+                <td className="col-2">{pd.status}</td>
+                <td className="col-2">{ dayjs(pd.update_at).format('DD/MM/YYYY')}</td>
+                <td className="col-1">
+                    <button>
+                        <i className="fas fa-pen"></i>
+                    </button>
+                    <button>
+                        <i className="fas fa-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        );
+        setData(postData)
     }, [offset, perPage, users, searchInput])
 
     const [selectedOption, setSelectedOption] = useState({value: "5", label: "5 items"})
@@ -133,20 +115,25 @@ export const Table = ({columns, data:users}) => {
                             breakClassName={"break-me"}
                             pageCount={pageCount}
                             marginPagesDisplayed={2}
-                            pageRangeDisplayed={5}
+                            pageRangeDisplayed={3}
                             onPageChange={handlePageClick}
                             containerClassName={"pagination"}
                             subContainerClassName={"pages pagination"}
                             activeClassName={"active"}    
                         />
                     }
+                    {
+                        pageCount > 0
+                        &&
 
-                    <Select
-                        value={selectedOption}
-                        onChange={handleSelectItems}
-                        options={options}
-                        styles={customStyles}
-                    />
+                        <Select
+                            value={selectedOption}
+                            onChange={handleSelectItems}
+                            options={options}
+                            styles={customStyles}
+                        />
+                    }
+                    
                 </div>
             </div>
         </>

@@ -9,7 +9,6 @@ export const PrivateRoute = ({
     component: Component,
     ...rest
 }) => {
-    console.log(isAdmin)
     return (
         <Route { ...rest }
             component={ (props) => (
