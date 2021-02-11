@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { startGettingUsers } from '../../../actions/users';
+import { startGettingUsers, startUpdatingUser } from '../../../actions/users';
 import { useForm } from '../../../hooks/useForm';
 import { BtnSubmit } from '../../ui/Buttons/BtnSubmit';
 import { Card } from '../../ui/Cards/Card';
@@ -13,23 +13,27 @@ export const UserScreen = () => {
     const [isDisable, setIsDisable] = useState(true)
 
     // Form
-    const {name, lastname, email} = useSelector(state => state.auth)
+    const {name, lastname, email, id, avatar} = useSelector(state => state.users.auth)
     const [formData, handleInputChange] = useForm({
         eName: name,
         eLastname: lastname,
-        eEmail: email
+        eEmail: email,
+        eAvatar: avatar
     })
 
-    const {eName, eLastname, eEmail} = formData
+    const {eName, eLastname, eEmail, eAvatar} = formData
     const handleSubmit = (e) => {
         e.preventDefault();
+
         setIsDisable(true);
+
         const dateToUpdate = {
+            id,
             'name': formData.eName,
             'lastname': formData.eLastname,
             'email': formData.eEmail,
         }
-        console.log(dateToUpdate)
+        dispatch(startUpdatingUser(dateToUpdate))
     }
     
     const dispatch = useDispatch()
@@ -45,7 +49,13 @@ export const UserScreen = () => {
     // Banners
     const usersActive = users.filter( user => user.status === 0).length;
     const usersBanned = users.filter( user => user.status === 1).length;
-        
+    
+    // Avatar
+    const inputAvatar = useRef()
+    const handleChangeAvatar = () => {
+        inputAvatar.current.click();
+    }
+
     return (
         <div className="container">
             <div className="flex-g">
@@ -59,7 +69,11 @@ export const UserScreen = () => {
                         <div>My user details</div>
                         <CardMenu id="1">
                             <a onClick={() => setIsDisable(!isDisable)}>
-                                Edit details
+                                {
+                                    isDisable
+                                    ? 'Edit details'
+                                    : 'Cancel edit'
+                                }
                             </a>
                         </CardMenu>
                     </div>
@@ -67,7 +81,8 @@ export const UserScreen = () => {
                         <form onSubmit={handleSubmit}>
                             <div className="col-12 col-sm-12 m-2">
                                 <p className="text-center avatar">
-                                    <i className="fas fa-user-circle avatar" aria-hidden="true"></i>
+                                    <i className="fas fa-user-circle avatar" aria-hidden="true" onClick={handleChangeAvatar}></i>
+                                    <input type="file" name="eAvatar" value={eAvatar} onChange={handleInputChange} ref={inputAvatar} accept="image/*" className="d-none"/>
                                 </p>
                             </div>
                             <div className="flex-break"><br/></div>
@@ -76,7 +91,7 @@ export const UserScreen = () => {
                                 <label className="col-12">Name:</label>
                                 <input className="col-12" 
                                     type="text" 
-                                    name="name"
+                                    name="eName"
                                     value={eName}
                                     onChange={handleInputChange}
                                     disabled={isDisable}/>
@@ -85,7 +100,7 @@ export const UserScreen = () => {
                                 <label className="col-12">Lastname:</label>
                                 <input className="col-12" 
                                     type="text" 
-                                    name="lastname"
+                                    name="eLastname"
                                     value={eLastname}
                                     onChange={handleInputChange}
                                     disabled={isDisable}/>
@@ -94,7 +109,7 @@ export const UserScreen = () => {
                                 <label className="col-12">Email:</label>
                                 <input className="col-12" 
                                     type="text" 
-                                    name="email"
+                                    name="eEmail"
                                     value={eEmail}
                                     onChange={handleInputChange}
                                     disabled={isDisable}/>

@@ -2,6 +2,7 @@ import Swal from "sweetalert2";
 import { fetchSinToken, fetchConToken } from "../helpers/fetch";
 import { types } from "../types/types";
 import { deleteToken, saveToken } from "./token";
+import { usersAuth } from "./users";
  
 export const startLogin = (email, password) => {
     return async( dispatch ) => {
@@ -17,6 +18,7 @@ export const startLogin = (email, password) => {
                 password,
                 user: body.user
             }) );
+            dispatch( usersAuth(body.user) );
             dispatch( saveToken(body.token));
 
         } else {
@@ -36,6 +38,7 @@ export const startRegister = ( name, lastname, email, password ) => {
                 password,
                 user: body.user
             }) );
+            dispatch( usersAuth(body.user) );
             Swal.fire('Success', body.msg, 'success')
         } else {
             Swal.fire('Error', body.msg, 'error')
@@ -95,6 +98,7 @@ export const startChecking = () =>{
             dispatch( login({
                 user: body.user
             }) );
+            dispatch( usersAuth(body.user) );
             dispatch(saveToken(body.token));
 
         } else {

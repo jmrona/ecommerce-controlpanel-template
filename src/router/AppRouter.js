@@ -14,7 +14,8 @@ import { PublicRoute } from './PublicRouter'
 
 export const AppRouter = () => {
     const { token } = useSelector(state => state.token);
-    const { checking, role} = useSelector(state => state.auth);
+    const { role } = useSelector( state => state.users.auth);
+    const { checking} = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
 

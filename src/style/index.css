@@ -360,6 +360,10 @@ a {
   overflow: hidden;
 }
 
+.d-none {
+  display: none;
+}
+
 .flex-break {
   width: 100%;
   height: 0px;

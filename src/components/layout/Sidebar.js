@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 export const Sidebar = () => {
 
-    const {name = "Prueba", role} = useSelector(state => state.auth)
+    const {name = "Prueba", role} = useSelector(state => state.users.auth)
     const getRole = () => {
         if(role === 1){
             return 'Administrator'
@@ -13,6 +13,7 @@ export const Sidebar = () => {
 
         return 'Customer'
     }
+    
     return (
         <div className="sidebar">
             <nav>

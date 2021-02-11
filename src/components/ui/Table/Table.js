@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 import React, { useEffect, useState } from 'react'
 import Select from 'react-select';
 import ReactPaginate from 'react-paginate';
+import { Btn } from '../Buttons/Btn';
 
 
 export const Table = ({columns, data:users}) => {
@@ -17,11 +18,12 @@ export const Table = ({columns, data:users}) => {
     }
 
     useEffect(() => {
+        let slice = [];
         if( searchInput !== ''){
-            var slice = users.filter( user => user.email.includes(searchInput)).slice(offset, offset + perPage)
+            slice = users.filter( user => user.email.includes(searchInput)).slice(offset, offset + perPage)
             setPageCount(Math.ceil(users.includes(searchInput).length / perPage))
         }else{
-            var slice = users.slice(offset, offset + perPage)
+            slice = users.slice(offset, offset + perPage)
             setPageCount(Math.ceil(users.length / perPage))
         }
         const postData = slice.map( pd => 
@@ -32,13 +34,15 @@ export const Table = ({columns, data:users}) => {
                 <td className="col-2">{pd.role_id}</td>
                 <td className="col-2">{pd.status}</td>
                 <td className="col-2">{ dayjs(pd.update_at).format('DD/MM/YYYY')}</td>
-                <td className="col-1">
-                    <button>
+                <td className="col-2">
+                    <Btn md="1" sm="1">
+                        {/* Sent a reset password email */}
                         <i className="fas fa-pen"></i>
-                    </button>
-                    <button>
+                    </Btn>
+                    <Btn md="1" sm="1">
+                        {/* Ban user */}
                         <i className="fas fa-trash"></i>
-                    </button>
+                    </Btn>
                 </td>
             </tr>
         );
