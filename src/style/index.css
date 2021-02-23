@@ -31,10 +31,11 @@
   --notifications: #b47f1d;
   --light: #b47f1d;
   --dark: #4754c7;
-  --duration: 0.3s;
+  --duration: 0.2s;
   --duration-notifications: 0.3s;
   --black-color: #1b1b1b;
   --white-color: #eee;
+  --shadow-color: #242424;
 }
 
 html[data-theme='dark'] {
@@ -456,6 +457,14 @@ a {
   place-self: center !important;
 }
 
+.bg-color {
+  background: var(--bgColorMain);
+}
+
+.text-color {
+  color: var(--colorText) !important;
+}
+
 .wrapper-auth {
   width: 100vw;
   height: 100vh;
@@ -674,6 +683,12 @@ form.auth input:focus {
   font-size: 5rem;
 }
 
+.sidebar .profile img {
+  width: 125px;
+  -webkit-clip-path: circle(45% at 50% 50%);
+          clip-path: circle(45% at 50% 50%);
+}
+
 .sidebar .profile .name {
   margin-top: 1rem;
   font-size: 1.2rem;
@@ -873,6 +888,59 @@ main div.subrow {
   .col-sm-12 {
     min-width: 100%;
   }
+}
+
+.avatar {
+  position: relative;
+}
+
+.avatar img {
+  width: 100%;
+  border-radius: 25px;
+}
+
+.avatar .avatar-profile {
+  width: 100%;
+}
+
+.avatar i.btn-options {
+  position: absolute;
+  color: var(--black-color);
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  -webkit-text-stroke: 1px transparent;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.247);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.247);
+  -webkit-transition: var(--duration) ease-in-out;
+  transition: var(--duration) ease-in-out;
+}
+
+.avatar i.btn-options.edit-avatar {
+  background-color: var(--warning);
+  right: 55px;
+  bottom: 25px;
+}
+
+.avatar i.btn-options.edit-avatar:hover {
+  background-color: var(--bgColorMain);
+  border: 1px solid var(--warning);
+  color: var(--warning);
+  -webkit-text-stroke: 1px #252525;
+}
+
+.avatar i.btn-options.delete-avatar {
+  background-color: var(--danger);
+  right: 15px;
+  bottom: 25px;
+}
+
+.avatar i.btn-options.delete-avatar:hover {
+  background-color: var(--bgColorMain);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  -webkit-text-stroke: 1px #252525;
 }
 
 div.card-border-success {

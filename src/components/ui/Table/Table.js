@@ -35,11 +35,11 @@ export const Table = ({columns, data:users}) => {
                 <td className="col-2">{pd.status}</td>
                 <td className="col-2">{ dayjs(pd.update_at).format('DD/MM/YYYY')}</td>
                 <td className="col-2">
-                    <Btn md="1" sm="1">
+                    <Btn color="default" md="1" sm="1">
                         {/* Sent a reset password email */}
                         <i className="fas fa-pen"></i>
                     </Btn>
-                    <Btn md="1" sm="1">
+                    <Btn color="default" md="1" sm="1">
                         {/* Ban user */}
                         <i className="fas fa-trash"></i>
                     </Btn>

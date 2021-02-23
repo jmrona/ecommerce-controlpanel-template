@@ -1,12 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { startGettingUsers, startUpdatingUser } from '../../../actions/users';
 import { useForm } from '../../../hooks/useForm';
+
+import Swal from 'sweetalert2';
+import { swalCustomStyle } from '../../../helpers/swalCustom';
+
 import { BtnSubmit } from '../../ui/Buttons/BtnSubmit';
 import { Card } from '../../ui/Cards/Card';
 import { CardMenu } from '../../ui/Cards/CardMenu';
 import { Table } from '../../ui/Table/Table';
 import { DateComponent } from '../shared/DateComponent';
+
+import { 
+    startGettingUsers, 
+    startUpdatingUser, 
+    startSettingAvatar, 
+    startDeletingAvatar 
+} from '../../../actions/users';
 
 export const UserScreen = () => {
 
@@ -17,30 +27,63 @@ export const UserScreen = () => {
     const [formData, handleInputChange] = useForm({
         eName: name,
         eLastname: lastname,
-        eEmail: email,
-        eAvatar: avatar
+        eEmail: email
     })
 
-    const {eName, eLastname, eEmail, eAvatar} = formData
+    const {eName, eLastname, eEmail} = formData;
+    
     const handleSubmit = (e) => {
         e.preventDefault();
 
         setIsDisable(true);
 
-        const dateToUpdate = {
+        const dataToUpdate = {
             id,
-            'name': formData.eName,
-            'lastname': formData.eLastname,
-            'email': formData.eEmail,
+            'name': eName,
+            'lastname': eLastname,
+            'email': eEmail,
         }
-        dispatch(startUpdatingUser(dateToUpdate))
+        dispatch(startUpdatingUser(dataToUpdate))
     }
     
+    // Avatar
+    const inputAvatar = useRef()
+    const handleChangeAvatar = () => {
+        inputAvatar.current.click();
+    }
+
+    const handleSubmitAvatar = () => {
+        const avatar = inputAvatar.current.files[0];
+        dispatch(startSettingAvatar(id, avatar))
+    }
+      
+    const handleDeleteAvatar = () => {
+        swalCustomStyle.fire({
+            title: 'Are you sure?',
+            text: "If you delete this picture, you won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true,
+            focusCancel: true,
+          }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(startDeletingAvatar(id));
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                swalCustomStyle.fire('Cancelled','Your picture is safe 😊','error')
+            }
+          })
+    }
+
+
     const dispatch = useDispatch()
-    
     useEffect(() => {
         dispatch(startGettingUsers())
     }, [dispatch])
+
+    // Images directory
+    const baseImgUrl = process.env.REACT_APP_IMG_STORAGE_API_URL;
 
     // Table
     const {users} = useSelector(state => state.users)
@@ -50,11 +93,6 @@ export const UserScreen = () => {
     const usersActive = users.filter( user => user.status === 0).length;
     const usersBanned = users.filter( user => user.status === 1).length;
     
-    // Avatar
-    const inputAvatar = useRef()
-    const handleChangeAvatar = () => {
-        inputAvatar.current.click();
-    }
 
     return (
         <div className="container">
@@ -78,12 +116,25 @@ export const UserScreen = () => {
                         </CardMenu>
                     </div>
                     <div className="card-body d-flex flex-wrap">
-                        <form onSubmit={handleSubmit}>
-                            <div className="col-12 col-sm-12 m-2">
-                                <p className="text-center avatar">
-                                    <i className="fas fa-user-circle avatar" aria-hidden="true" onClick={handleChangeAvatar}></i>
-                                    <input type="file" name="eAvatar" value={eAvatar} onChange={handleInputChange} ref={inputAvatar} accept="image/*" className="d-none"/>
-                                </p>
+                        <form onSubmit={handleSubmit} encType="multipart/form-data">
+                            <div className="text-center avatar">
+                                {
+                                    (avatar)
+                                    ? <img src={`${baseImgUrl}${id}/${avatar}`} alt="avatar"/>
+                                    : <i className="fas fa-user-circle avatar-profile" aria-hidden="true"></i>
+                                }
+                                       
+                                {
+                                    !isDisable
+                                    &&
+                                    <i className="fas fa-pen btn-options edit-avatar" aria-hidden="true" onClick={handleChangeAvatar}></i>
+                                }
+                                {
+                                    !isDisable
+                                    &&
+                                    <i className="fas fa-trash btn-options delete-avatar" aria-hidden="true" onClick={handleDeleteAvatar}></i>
+                                }
+                                <input type="file" name="eAvatar" onChange={handleSubmitAvatar} ref={inputAvatar} accept="image/*" className="d-none"/>
                             </div>
                             <div className="flex-break"><br/></div>
                             
@@ -118,7 +169,7 @@ export const UserScreen = () => {
                             {
                                 isDisable === false
                                 && 
-                                <BtnSubmit color="success" outline sm="12" md="12">
+                                <BtnSubmit color="success" outline sm="12" md="12" css="m-2">
                                     <i className="fas fa-save mr-2"></i>
                                     Save
                                 </BtnSubmit>

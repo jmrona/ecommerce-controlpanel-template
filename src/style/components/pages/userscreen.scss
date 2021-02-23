@@ -1,0 +1,55 @@
+.avatar{
+    position: relative;
+    img{
+        width: 100%;
+        border-radius: 25px;
+    };
+
+    .avatar-profile{
+        width: 100%;
+    }
+    
+    i.btn-options{
+        position: absolute;
+        
+        color: var(--black-color);
+        font-size: 1.2rem;
+        padding: 10px;
+
+        border-radius: 10px;
+        border: 1px solid transparent;
+        -webkit-text-stroke: 1px transparent;
+
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.247);
+
+        transition: var(--duration) ease-in-out;
+
+        &.edit-avatar {
+            background-color: var(--warning);
+            right: 55px;
+            bottom: 25px;
+            
+            &:hover{
+                background-color: var(--bgColorMain);
+                border: 1px solid var(--warning);
+                color: var(--warning);
+                -webkit-text-stroke: 1px #252525;
+            }
+        }
+        
+        &.delete-avatar{
+            background-color: var(--danger);
+            right: 15px;
+            bottom: 25px;
+
+            &:hover{
+                background-color: var(--bgColorMain);
+                border: 1px solid var(--danger);
+                color: var(--danger);
+                -webkit-text-stroke: 1px #252525;
+            }
+
+        }
+    }
+}
+

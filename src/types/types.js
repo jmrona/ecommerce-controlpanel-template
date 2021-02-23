@@ -21,5 +21,6 @@ export const types = {
     usersAuth: '[users] User authenticated',
     usersLoaded: '[users] Users loaded',
     userUpdated: '[users] Updating user',
-    getDeleteUser: '[users] Deleting user',
+    userDeleted: '[users] Deleting user',
+    userAvatarDeleted: '[users] Avatar deleted'
 }

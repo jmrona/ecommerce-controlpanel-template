@@ -1,0 +1,53 @@
+.avatar {
+  position: relative;
+}
+
+.avatar img {
+  width: 100%;
+  border-radius: 25px;
+}
+
+.avatar .avatar-profile {
+  width: 100%;
+}
+
+.avatar i.btn-options {
+  position: absolute;
+  color: var(--black-color);
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  -webkit-text-stroke: 1px transparent;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.247);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.247);
+  -webkit-transition: var(--duration) ease-in-out;
+  transition: var(--duration) ease-in-out;
+}
+
+.avatar i.btn-options.edit-avatar {
+  background-color: var(--warning);
+  right: 55px;
+  bottom: 25px;
+}
+
+.avatar i.btn-options.edit-avatar:hover {
+  background-color: var(--bgColorMain);
+  border: 1px solid var(--warning);
+  color: var(--warning);
+  -webkit-text-stroke: 1px #252525;
+}
+
+.avatar i.btn-options.delete-avatar {
+  background-color: var(--danger);
+  right: 15px;
+  bottom: 25px;
+}
+
+.avatar i.btn-options.delete-avatar:hover {
+  background-color: var(--bgColorMain);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  -webkit-text-stroke: 1px #252525;
+}
+/*# sourceMappingURL=userscreen.css.map */

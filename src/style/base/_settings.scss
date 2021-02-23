@@ -38,19 +38,21 @@
     //Sidebar
     --main-color: #3f78ce;
 
-    //navbar
+    //Navbar
     --notifications: #b47f1d;
     --light: #b47f1d;
     --dark: #4754c7;
 
-    //animations
-    --duration: 0.3s;
+    //Animations
+    --duration: 0.2s;
     --duration-notifications: 0.3s;
 
-    //colors
+    //Colors
     --black-color: #1b1b1b;
     --white-color: #eee;
 
+    //Shadow
+    --shadow-color: #242424;
 }
 
 html[data-theme='dark'] {

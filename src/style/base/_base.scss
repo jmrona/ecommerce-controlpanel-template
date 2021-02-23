@@ -137,6 +137,9 @@ a {
 .place-items-center{place-items: center !important;}
 .place-self-center{place-self: center !important;}
 
+// Swal Modal
+.bg-color{background: var(--bgColorMain);}
+.text-color{color: var(--colorText) !important;}
 
 @media only screen and (max-width: 650px){
     // #root {

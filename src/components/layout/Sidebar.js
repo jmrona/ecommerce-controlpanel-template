@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom'
 
 import { useSelector } from 'react-redux';
 
-export const Sidebar = () => {
+export const Sidebar = ({history}) => {
 
-    const {name = "Prueba", role} = useSelector(state => state.users.auth)
+    const {name = "Prueba", role, avatar, id} = useSelector(state => state.users.auth)
     const getRole = () => {
         if(role === 1){
             return 'Administrator'
@@ -13,6 +13,9 @@ export const Sidebar = () => {
 
         return 'Customer'
     }
+
+    // Images directory
+    const baseImgUrl = process.env.REACT_APP_IMG_STORAGE_API_URL;
     
     return (
         <div className="sidebar">
@@ -21,7 +24,11 @@ export const Sidebar = () => {
                     JMRONA
                 </div>
                 <div className="profile">
-                    <i className="fas fa-user-circle avatar"></i>
+                    {
+                        (avatar)
+                        ? <img src={`${baseImgUrl}${id}/${avatar}`} alt="avatar"/>
+                        : <i className="fas fa-user-circle avatar" aria-hidden="true"></i>
+                    }
                     <p className="name">{name}</p>
                     <p className="role">{getRole()}</p>
                 </div>

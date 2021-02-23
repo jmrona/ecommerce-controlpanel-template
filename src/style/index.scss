@@ -10,6 +10,9 @@
 @import './components/layout/sidebar/sidebar';
 @import './components/layout/main/main';
 
+// Pages
+@import './components/pages/userscreen';
+
 // Components
 @import './components/ui/card/card';
 @import './components/ui/btn/btn';
@@ -17,4 +20,4 @@
 @import './components/ui/table/table.scss';
 
 // Shared
-@import './components/shared/dateComponent'
+@import './components/shared/dateComponent';

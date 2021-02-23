@@ -27,6 +27,12 @@
   font-size: 5rem;
 }
 
+.sidebar .profile img {
+  width: 125px;
+  -webkit-clip-path: circle(45% at 50% 50%);
+          clip-path: circle(45% at 50% 50%);
+}
+
 .sidebar .profile .name {
   margin-top: 1rem;
   font-size: 1.2rem;
