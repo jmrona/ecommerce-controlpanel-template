@@ -64,6 +64,32 @@ export const startDeletingAvatar = (id) => {
     }
 }
 
+export const startBanningUser = (id) => {
+    return async( dispatch ) => {
+        const resp = await fetchConToken( 'user/'+id+'/setBan', {id}, 'POST')
+        const body = await resp.json();
+        if(body.ok){
+            dispatch(usersLoaded(body.users))
+            swalCustomStyle.fire('Successfully', body.msg, 'success');
+        }else{
+            swalCustomStyle.fire('Error', body.msg, 'error')
+        }
+    }
+}
+
+export const startRemovingBanUser = (id) => {
+    return async( dispatch ) => {
+        const resp = await fetchConToken( 'user/'+id+'/removeBan', {id}, 'POST')
+        const body = await resp.json();
+        if(body.ok){
+            dispatch(usersLoaded(body.users))
+            swalCustomStyle.fire('Successfully', body.msg, 'success');
+        }else{
+            swalCustomStyle.fire('Error', body.msg, 'error')
+        }
+    }
+}
+
 export const usersAuth = (user_auth) => ({
     type: types.usersAuth,
     payload: user_auth

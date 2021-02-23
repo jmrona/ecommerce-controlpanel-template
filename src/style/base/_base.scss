@@ -79,6 +79,16 @@ a {
 .m-3 {margin: 15px;}
 .m-4 {margin: 20px;}
 .m-5 {margin: 25px;}
+.mx-1 {margin: 0 5px;}
+.mx-2 {margin: 0 10px;}
+.mx-3 {margin: 0 15px;}
+.mx-4 {margin: 0 20px;}
+.mx-5 {margin: 0 25px;}
+.my-1 {margin: 5px 0;}
+.my-2 {margin: 10px 0;}
+.my-3 {margin: 15px 0;}
+.my-4 {margin: 20px 0;}
+.my-5 {margin: 25px 0;}
 .mx-auto {margin: 0 auto;}
 .my-auto {margin: auto 0;}
 
@@ -120,6 +130,8 @@ a {
 
 .d-flex {display: flex;}
 .flex-wrap{flex-wrap: wrap;}
+.flex-row{flex-direction: row;}
+.flex-column{flex-direction: column;}
 .flex-nowrap{flex-wrap: nowrap;}
 .flex-1 {flex: 1;}
 

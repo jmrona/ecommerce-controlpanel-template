@@ -61,7 +61,7 @@ export const UserScreen = () => {
         swalCustomStyle.fire({
             title: 'Are you sure?',
             text: "If you delete this picture, you won't be able to revert this!",
-            icon: 'warning',
+            icon: 'question',
             showCancelButton: true,
             confirmButtonText: 'Yes, delete it!',
             cancelButtonText: 'No, cancel!',
@@ -70,6 +70,7 @@ export const UserScreen = () => {
           }).then((result) => {
             if (result.isConfirmed) {
                 dispatch(startDeletingAvatar(id));
+                swalCustomStyle.fire('Deleting...','','info')
             } else if (result.dismiss === Swal.DismissReason.cancel) {
                 swalCustomStyle.fire('Cancelled','Your picture is safe 😊','error')
             }
@@ -106,13 +107,13 @@ export const UserScreen = () => {
                     <div className="card-header">
                         <div>My user details</div>
                         <CardMenu id="1">
-                            <a onClick={() => setIsDisable(!isDisable)}>
+                            <div onClick={() => setIsDisable(!isDisable)}>
                                 {
                                     isDisable
                                     ? 'Edit details'
                                     : 'Cancel edit'
                                 }
-                            </a>
+                            </div>
                         </CardMenu>
                     </div>
                     <div className="card-body d-flex flex-wrap">
@@ -127,12 +128,18 @@ export const UserScreen = () => {
                                 {
                                     !isDisable
                                     &&
-                                    <i className="fas fa-pen btn-options edit-avatar" aria-hidden="true" onClick={handleChangeAvatar}></i>
+                                    <i className="fas fa-pen btn-options edit-avatar" 
+                                        aria-hidden="true" 
+                                        onClick={handleChangeAvatar}>
+                                    </i>
                                 }
                                 {
                                     !isDisable
                                     &&
-                                    <i className="fas fa-trash btn-options delete-avatar" aria-hidden="true" onClick={handleDeleteAvatar}></i>
+                                    <i className="fas fa-trash btn-options delete-avatar" 
+                                        aria-hidden="true" 
+                                        onClick={handleDeleteAvatar}>
+                                    </i>
                                 }
                                 <input type="file" name="eAvatar" onChange={handleSubmitAvatar} ref={inputAvatar} accept="image/*" className="d-none"/>
                             </div>

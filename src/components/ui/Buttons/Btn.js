@@ -25,6 +25,14 @@ Btn.propTypes = {
     outline: PropTypes.bool,
     sm: PropTypes.oneOf(['1','2','3','4','5','6','7','8','9','10','11','12']).isRequired, 
     md: PropTypes.oneOf(['1','2','3','4','5','6','7','8','9','10','11','12']).isRequired,
-    color: PropTypes.oneOf(['success', 'danger', 'warning', 'default', 'blue']).isRequired,
-    children: PropTypes.string
+    color: PropTypes.oneOf([
+        'success', 
+        'danger', 
+        'warning', 
+        'default', 
+        'blue', 
+        'create',
+        'edit',
+        'delete',
+    ]).isRequired,
   };

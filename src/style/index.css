@@ -241,6 +241,46 @@ a {
   margin: 25px;
 }
 
+.mx-1 {
+  margin: 0 5px;
+}
+
+.mx-2 {
+  margin: 0 10px;
+}
+
+.mx-3 {
+  margin: 0 15px;
+}
+
+.mx-4 {
+  margin: 0 20px;
+}
+
+.mx-5 {
+  margin: 0 25px;
+}
+
+.my-1 {
+  margin: 5px 0;
+}
+
+.my-2 {
+  margin: 10px 0;
+}
+
+.my-3 {
+  margin: 15px 0;
+}
+
+.my-4 {
+  margin: 20px 0;
+}
+
+.my-5 {
+  margin: 25px 0;
+}
+
 .mx-auto {
   margin: 0 auto;
 }
@@ -379,6 +419,20 @@ a {
 .flex-wrap {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+}
+
+.flex-row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.flex-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .flex-nowrap {
@@ -1048,7 +1102,7 @@ div.card .card-header .card-menu .dropdown-content {
   z-index: 1;
 }
 
-div.card .card-header .card-menu .dropdown-content a {
+div.card .card-header .card-menu .dropdown-content div {
   width: 100%;
   color: black;
   padding: 12px 16px;
@@ -1062,11 +1116,11 @@ div.card .card-header .card-menu .dropdown-content a {
   place-items: center;
 }
 
-div.card .card-header .card-menu .dropdown-content a:hover {
+div.card .card-header .card-menu .dropdown-content div:hover {
   background-color: rgba(221, 221, 221, 0.877);
 }
 
-div.card .card-header .card-menu .dropdown-content a img, div.card .card-header .card-menu .dropdown-content a svg {
+div.card .card-header .card-menu .dropdown-content div img, div.card .card-header .card-menu .dropdown-content div svg {
   width: 20px;
 }
 
@@ -1127,6 +1181,10 @@ a.btn-flex button, a.btn-flex .btn {
       flex-basis: 100%;
   max-height: 100%;
   border-radius: 10px;
+}
+
+a.btn-flex .btn-sm {
+  padding: 7px 16px;
 }
 
 .btn-block {
@@ -1270,6 +1328,71 @@ a.btn-flex button, a.btn-flex .btn {
   background: var(--blue-hover);
   -webkit-box-shadow: 0 5px 10px 5px var(--blue-shadow);
           box-shadow: 0 5px 10px 5px var(--blue-shadow);
+}
+
+.btn-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-content: center;
+  max-width: 2.4rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: var(--black-color);
+  border-radius: 10px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.247);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.247);
+  -webkit-transition: var(--duration) ease-in-out;
+  transition: var(--duration) ease-in-out;
+  cursor: pointer;
+}
+
+.btn-options i {
+  width: 1.1rem !important;
+  height: 1.1rem !important;
+}
+
+.btn-create {
+  color: var(--success);
+  background: var(--bgColorMain);
+  border: 1px solid var(--success);
+  -webkit-text-stroke: 1px #0a3c35;
+}
+
+.btn-create:hover {
+  background: var(--success);
+  border: 1px solid transparent;
+  color: var(--colorText);
+  -webkit-text-stroke: 1px transparent;
+}
+
+.btn-edit {
+  color: var(--warning);
+  background: var(--bgColorMain);
+  border: 1px solid var(--warning);
+  -webkit-text-stroke: 1px #be6e01;
+}
+
+.btn-edit:hover {
+  background: var(--warning);
+  border: 1px solid transparent;
+  color: var(--colorText);
+  -webkit-text-stroke: 1px transparent;
+}
+
+.btn-delete {
+  color: var(--danger);
+  background: var(--bgColorMain);
+  border: 1px solid var(--danger);
+  -webkit-text-stroke: 1px #b02213;
+}
+
+.btn-delete:hover {
+  color: var(--colorText);
+  background: var(--danger);
+  border: 1px solid transparent;
+  -webkit-text-stroke: 1px transparent;
 }
 
 button:focus {
@@ -1613,6 +1736,45 @@ table thead tr th, table tbody tr th {
 
 .css-2b097c-container .css-1uccc91-singleValue {
   color: var(--colorText);
+}
+
+.tooltip {
+  position: relative;
+  -webkit-transition: var(--duration) ease-in-out;
+  transition: var(--duration) ease-in-out;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100px;
+  background-color: var(--bgColorNav);
+  color: var(--colorText);
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -50px;
+  /* Use half of the width (120/2 = 60), to center the tooltip */
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--bgColorNav) transparent transparent transparent;
 }
 
 .dateComponent {

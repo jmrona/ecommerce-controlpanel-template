@@ -75,35 +75,6 @@ table{
     width: 100%;
 }
 
-// .pagination{
-//     display: inline-flex;
-//     border: 1px solid var(--bgColorNav);
-//     border-radius: 5px;
-//     box-shadow: 0 3px 5px  rgba(0, 0, 0, 0.63);
-
-//     button{
-//         cursor: pointer;
-//         color: var(--colorText); 
-//         background: transparent;
-//         border: none;
-//         text-align: center;
-//         font-weight: 700;
-//         width: 30px;
-//         height: 30px;
-
-//         &:last-child{
-//             border-top-right-radius: 5px;
-//             border-bottom-right-radius: 5px;
-//         }
-    
-//         &:first-child{
-//             border-top-left-radius: 5px;
-//             border-bottom-left-radius: 5px;
-//         }
-//     }
-
-// }
-
 .pagination {
     display: flex;
     list-style: none;
@@ -118,7 +89,6 @@ table{
 }
 
 .pagination > li > a{
-    // border: 1px solid var(--table-border-black);
     padding: 5px 10px;
     outline: none;
     cursor: pointer;
@@ -156,13 +126,6 @@ table{
         width: 100%;
     }
 
-    // .css-1pahdxg-control{
-    //     color: var(--black-color);
-    //     .css-1uccc91-singleValue{
-    //         color: var(--colorText) !important;
-    //     }
-    // }
-
     .css-1okebmr-indicatorSeparator{
         width: 2px !important;
         border-radius: 5px;
@@ -181,18 +144,3 @@ table{
         color: var(--colorText);
     }
 }
-
-
-
-//   select{
-//       color: var(--colorText);
-//       background-color: transparent;
-
-//       font-size: 1rem;
-//       padding: 0 10px;
-//       border: none;
-
-//       &:focus{
-//           outline: none;
-//       }
-//   }

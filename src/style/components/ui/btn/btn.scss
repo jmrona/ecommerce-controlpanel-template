@@ -15,6 +15,10 @@ a.btn-flex{
     
         border-radius: 10px;
     }
+
+    .btn-sm {
+        padding: 7px 16px;
+    }
 }
 
 .btn-block{flex:1 1 auto;}
@@ -124,6 +128,68 @@ a.btn-flex{
     }
 }
 
+.btn-options{
+    display: flex;
+    place-content: center;
+
+    max-width: 2.4rem;
+    height: fit-content;
+
+    color: var(--black-color);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.247);
+
+    transition: var(--duration) ease-in-out;
+    cursor: pointer;
+
+    i{
+        width: 1.1rem !important;
+        height: 1.1rem !important;
+    }
+}
+
+.btn-create{
+    color: var(--success);
+    background: var(--bgColorMain);
+    border: 1px solid var(--success);
+    -webkit-text-stroke: 1px darken($color: #20BFA9, $amount: 30%);
+
+    &:hover{
+        background: var(--success);
+        border: 1px solid transparent;
+        color: var(--colorText);
+        -webkit-text-stroke: 1px transparent;
+    }
+}
+
+.btn-edit{
+    color: var(--warning);
+    background: var(--bgColorMain);
+    border: 1px solid var(--warning);
+    -webkit-text-stroke: 1px darken($color: #FEB95A, $amount: 30%);
+
+    &:hover{
+        background: var(--warning);
+        border: 1px solid transparent;
+        color: var(--colorText);
+        -webkit-text-stroke: 1px transparent;
+    }
+}
+
+.btn-delete{
+    color: var(--danger);
+    background: var(--bgColorMain);
+    border: 1px solid var(--danger);
+    -webkit-text-stroke: 1px darken($color: #EF796D, $amount: 30%);  
+
+    &:hover{
+        color: var(--colorText);
+        background: var(--danger);
+        border: 1px solid transparent;
+        -webkit-text-stroke: 1px transparent;
+    }
+}
+
 button{
     &:focus{
         outline: none;
@@ -133,6 +199,7 @@ button{
         outline: none;
     }
 }
+
 @media only screen and (max-width: 650px){
     .btn{
         padding: 10px 16px;

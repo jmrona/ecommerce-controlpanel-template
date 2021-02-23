@@ -104,7 +104,7 @@ div.card .card-header .card-menu .dropdown-content {
   z-index: 1;
 }
 
-div.card .card-header .card-menu .dropdown-content a {
+div.card .card-header .card-menu .dropdown-content div {
   width: 100%;
   color: black;
   padding: 12px 16px;
@@ -118,11 +118,11 @@ div.card .card-header .card-menu .dropdown-content a {
   place-items: center;
 }
 
-div.card .card-header .card-menu .dropdown-content a:hover {
+div.card .card-header .card-menu .dropdown-content div:hover {
   background-color: rgba(221, 221, 221, 0.877);
 }
 
-div.card .card-header .card-menu .dropdown-content a img, div.card .card-header .card-menu .dropdown-content a svg {
+div.card .card-header .card-menu .dropdown-content div img, div.card .card-header .card-menu .dropdown-content div svg {
   width: 20px;
 }
 

@@ -1,5 +1,5 @@
-import Swal from "sweetalert2";
 import { fetchSinToken, fetchConToken } from "../helpers/fetch";
+import { swalCustomStyle } from "../helpers/swalCustom";
 import { types } from "../types/types";
 import { deleteToken, saveToken } from "./token";
 import { usersAuth } from "./users";
@@ -22,7 +22,7 @@ export const startLogin = (email, password) => {
             dispatch( saveToken(body.token));
 
         } else {
-            Swal.fire('Error', body.msg, 'error')
+            swalCustomStyle.fire('Error', body.msg, 'error')
         }
     }
 }
@@ -39,9 +39,9 @@ export const startRegister = ( name, lastname, email, password ) => {
                 user: body.user
             }) );
             dispatch( usersAuth(body.user) );
-            Swal.fire('Success', body.msg, 'success')
+            swalCustomStyle.fire('Success', body.msg, 'success')
         } else {
-            Swal.fire('Error', body.msg, 'error')
+            swalCustomStyle.fire('Error', body.msg, 'error')
         }
     }
 }
@@ -72,7 +72,7 @@ export const startRecover = (email) => {
         const resp = await fetchSinToken( 'recover', {email}, 'POST');
         const body = await resp.json();
         if(body.ok){
-            Swal.fire('Success', body.msg, 'success')
+            swalCustomStyle.fire('Success', body.msg, 'success')
         }
     }
 }
@@ -82,7 +82,7 @@ export const startResetPassword = (email, code, newPassword) => {
         const resp = await fetchSinToken( 'reset', {email, code, newPassword}, 'POST');
         const body = await resp.json();
         if(body.ok){
-            Swal.fire('Success', body.msg, 'success')
+            swalCustomStyle.fire('Success', body.msg, 'success')
         }
     }
 }

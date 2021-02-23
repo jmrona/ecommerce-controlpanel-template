@@ -3,6 +3,11 @@ import React, { useEffect, useState } from 'react'
 import Select from 'react-select';
 import ReactPaginate from 'react-paginate';
 import { Btn } from '../Buttons/Btn';
+import { swalCustomStyle } from '../../../helpers/swalCustom';
+import { useDispatch } from 'react-redux';
+import { startBanningUser, startRemovingBanUser } from '../../../actions/users';
+import Swal from 'sweetalert2';
+import { startRecover } from '../../../actions/auth';
 
 
 export const Table = ({columns, data:users}) => {
@@ -13,8 +18,84 @@ export const Table = ({columns, data:users}) => {
     const [pageCount, setPageCount] = useState(0);
     const [searchInput, setSearchInput] = useState('');
 
+    const dispatch = useDispatch();
+    
     const handleInputChange = (e) => {
         setSearchInput(e.target.value)
+    }
+
+    const handleSentRecoveryPassword = (email) => {
+        swalCustomStyle.fire({
+            title: 'Are you sure?',
+            text: "If you confirm this action, it will send an email to the user with a recovery code to recover the password",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, send it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true,
+            focusCancel: true,
+          }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(startRecover(email));
+                swalCustomStyle.fire({
+                    icon: 'info',
+                    title: 'Sending email...',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                swalCustomStyle.fire('Cancelled','Your didn\'t sent a recovery password email','error')
+            }
+          })
+    }
+    const handleBanUser = (id) => {
+        swalCustomStyle.fire({
+            title: 'Are you sure?',
+            text: "If you confirm this action, it will ban the user and he/she will not be able to log in to the website",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, ban it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true,
+            focusCancel: true,
+          }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(startBanningUser(id));
+                swalCustomStyle.fire({
+                    icon: 'info',
+                    title: 'Banning user...',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                swalCustomStyle.fire('Cancelled','Your didn\'t ban this user','error')
+            }
+          })
+    }
+
+    const handleRemoveBanUser = (id) => {
+        swalCustomStyle.fire({
+            title: 'Are you sure?',
+            text: "If you confirm this action, it will remove the ban to the user and he/she will be able to log in to the website",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, remove it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true,
+            focusCancel: true,
+          }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(startRemovingBanUser(id));
+                swalCustomStyle.fire({
+                    icon: 'info',
+                    title: 'Removing ban to the user...',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                swalCustomStyle.fire('Cancelled','This user is still banned','error')
+            }
+          })
     }
 
     useEffect(() => {
@@ -26,23 +107,44 @@ export const Table = ({columns, data:users}) => {
             slice = users.slice(offset, offset + perPage)
             setPageCount(Math.ceil(users.length / perPage))
         }
-        const postData = slice.map( pd => 
-            <tr key={pd.id}>
-                <td className="col-2">{pd.name}</td>
-                <td className="col-2">{pd.lastname}</td>
-                <td className="col-2">{pd.email}</td>
-                <td className="col-2">{pd.role_id}</td>
-                <td className="col-2">{pd.status}</td>
-                <td className="col-2">{ dayjs(pd.update_at).format('DD/MM/YYYY')}</td>
-                <td className="col-2">
-                    <Btn color="default" md="1" sm="1">
-                        {/* Sent a reset password email */}
-                        <i className="fas fa-pen"></i>
-                    </Btn>
-                    <Btn color="default" md="1" sm="1">
-                        {/* Ban user */}
-                        <i className="fas fa-trash"></i>
-                    </Btn>
+        const postData = slice.map( ({id, name, lastname, email, role, status, last_connection}) => 
+            <tr key={id}>
+                <td className="col-2">{name}</td>
+                <td className="col-2">{lastname}</td>
+                <td className="col-2">{email}</td>
+                <td className="col-2">{role === 1 ? 'Admin' : 'Customer'}</td>
+                <td className="col-2">{status === 1 ? 'Banned' : 'Authorized'}</td>
+                {/* Cambiar update_at por last_conection que se guardará cada vez que actualice el token  */}
+                <td className="col-2">{ 
+                    last_connection
+                    ? dayjs(last_connection).format('DD/MM/YYYY HH:m:s')
+                    : '-'
+                    }
+                </td>
+                <td className="col-2 d-flex flex-wrap flex-row">
+                    <div onClick={() => handleSentRecoveryPassword(email)}>
+                        <Btn color="create" md="3" sm="3" css="btn-options btn-sm mx-1 tooltip">
+                            <i className="fas fa-paper-plane"></i>
+                            <span className="tooltiptext">Recovery password</span>
+                        </Btn>
+                    </div>
+                    {
+                        status === 0
+                        ?
+                        <div onClick={() => handleBanUser(id)}>
+                            <Btn color="delete" md="3" sm="3" css="btn-options btn-sm mx-1 tooltip">
+                                <i className="fas fa-ban"></i>
+                                <span className="tooltiptext">Ban user</span>
+                            </Btn>
+                        </div>
+                        :
+                        <div onClick={() => handleRemoveBanUser(id)}>
+                            <Btn color="create" md="3" sm="3" css="btn-options btn-sm mx-1 tooltip">
+                                <i className="fas fa-check-circle"></i>
+                                <span className="tooltiptext">Remove ban</span>
+                            </Btn>
+                        </div>
+                    }
                 </td>
             </tr>
         );
@@ -84,7 +186,7 @@ export const Table = ({columns, data:users}) => {
                     name="search"
                     value={searchInput}
                     onChange={handleInputChange}
-                    placeholder="test@test.com"
+                    placeholder="Search email"
                     className="col-2 searchInput"
                 />
                 <div className="icon-search">

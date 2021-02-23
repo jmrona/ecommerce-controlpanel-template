@@ -15,6 +15,10 @@ a.btn-flex button, a.btn-flex .btn {
   border-radius: 10px;
 }
 
+a.btn-flex .btn-sm {
+  padding: 7px 16px;
+}
+
 .btn-block {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
@@ -156,6 +160,71 @@ a.btn-flex button, a.btn-flex .btn {
   background: var(--blue-hover);
   -webkit-box-shadow: 0 5px 10px 5px var(--blue-shadow);
           box-shadow: 0 5px 10px 5px var(--blue-shadow);
+}
+
+.btn-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  place-content: center;
+  max-width: 2.4rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: var(--black-color);
+  border-radius: 10px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.247);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.247);
+  -webkit-transition: var(--duration) ease-in-out;
+  transition: var(--duration) ease-in-out;
+  cursor: pointer;
+}
+
+.btn-options i {
+  width: 1.1rem !important;
+  height: 1.1rem !important;
+}
+
+.btn-create {
+  color: var(--success);
+  background: var(--bgColorMain);
+  border: 1px solid var(--success);
+  -webkit-text-stroke: 1px #0a3c35;
+}
+
+.btn-create:hover {
+  background: var(--success);
+  border: 1px solid transparent;
+  color: var(--colorText);
+  -webkit-text-stroke: 1px transparent;
+}
+
+.btn-edit {
+  color: var(--warning);
+  background: var(--bgColorMain);
+  border: 1px solid var(--warning);
+  -webkit-text-stroke: 1px #be6e01;
+}
+
+.btn-edit:hover {
+  background: var(--warning);
+  border: 1px solid transparent;
+  color: var(--colorText);
+  -webkit-text-stroke: 1px transparent;
+}
+
+.btn-delete {
+  color: var(--danger);
+  background: var(--bgColorMain);
+  border: 1px solid var(--danger);
+  -webkit-text-stroke: 1px #b02213;
+}
+
+.btn-delete:hover {
+  color: var(--colorText);
+  background: var(--danger);
+  border: 1px solid transparent;
+  -webkit-text-stroke: 1px transparent;
 }
 
 button:focus {

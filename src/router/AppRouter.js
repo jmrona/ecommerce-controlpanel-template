@@ -1,21 +1,22 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect, Switch, BrowserRouter as Router, } from 'react-router-dom'
-import { startChecking } from '../actions/auth'
+import { startChecking, startLogout } from '../actions/auth'
 
 import { LoginScreen } from '../components/pages/auth/LoginScreen'
 import { RecoverScreen } from '../components/pages/auth/RecoverScreen'
 import { RegisterScreen } from '../components/pages/auth/RegisterScreen'
 import { ResetPassword } from '../components/pages/auth/ResetPassword'
-import { Ecommerce } from '../Ecommerce'
+import { Admin } from '../Admin'
 import { PrivateRoute } from './PrivateRouter'
 import { PublicRoute } from './PublicRouter'
+import { Ecommerce } from '../Ecommerce'
 
 
 export const AppRouter = () => {
     const { token } = useSelector(state => state.token);
-    const { role } = useSelector( state => state.users.auth);
-    const { checking} = useSelector(state => state.auth);
+    const { role, status } = useSelector( state => state.users.auth);
+    const { checking } = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
 
@@ -32,6 +33,13 @@ export const AppRouter = () => {
 
     }, [dispatch, dataTheme])
     
+    // If user get ban start logout
+    useEffect(() => {
+        if( status !== 0){
+            dispatch( startLogout() );
+        }
+    }, [status, dispatch])
+
     if( checking ){
         return (
             <div className="wrapper-auth">
@@ -77,10 +85,28 @@ export const AppRouter = () => {
                     isAdmin={role}
                 />
 
+                {/* si es admin, que vaya al componente ecommerce, sino que vaya a la tienda */}
+                {
+                    role === 1
+                    ?
+                    <PrivateRoute
+                        exact 
+                        path="/"
+                        component={Admin}
+                        isAuthenticated={ !!token }
+                    />
+                    :
+                    <PrivateRoute
+                        exact 
+                        path="/"
+                        component={Ecommerce}
+                        isAuthenticated={ !!token }
+                    />
+                }
                 <PrivateRoute
                     exact 
                     path="/"
-                    component={Ecommerce}
+                    component={Admin}
                     isAuthenticated={ !!token }
                     isAdmin={role}
                 />
