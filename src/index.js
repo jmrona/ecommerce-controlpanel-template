@@ -7,6 +7,8 @@ import { AppRouter } from './router/AppRouter';
 import './style/index.css'
 
 ReactDOM.render(
-  <Provider store={store}><AppRouter /></Provider>,
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>,
   document.getElementById('root')
 );

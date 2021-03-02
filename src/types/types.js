@@ -22,5 +22,14 @@ export const types = {
     usersLoaded: '[users] Users loaded',
     userUpdated: '[users] Updating user',
     userDeleted: '[users] Deleting user',
-    userAvatarDeleted: '[users] Avatar deleted'
+    userAvatarDeleted: '[users] Avatar deleted',
+
+    //Products
+    productLoaded: '[products] Products loaded',
+    productEdit: '[products] Products edit',
+    productUpdate: '[products] Products updating',
+    productCleanActive: '[products] Products clean product active',
+
+    //Categories
+    categoriesLoaded: '[categories] Categories loaded'
 }

@@ -43,7 +43,7 @@ div.row-auth {
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
   width: 100%;
-  padding: 0.7rem;
+  padding: 0.2rem 0.7rem;
 }
 
 form.auth label {
@@ -57,9 +57,9 @@ form.auth button.visible {
   cursor: pointer;
   background-color: transparent;
   border: 0;
-  position: relative;
-  top: -22px;
-  right: -335px;
+  position: absolute;
+  bottom: 6px;
+  right: 0;
   color: var(--main-color);
 }
 

@@ -122,8 +122,12 @@ a {
 
 .overflow-h{overflow: hidden;}
 
+// Position
+.position-relative{ position: relative;}
+.position-absolute{ position: absolute;}
+
 // Display
-.d-none{ display: none; }
+.d-none{ display: none !important; }
 
 // FLEXBOX
 .flex-break{width: 100%;height: 0px;}
@@ -137,13 +141,17 @@ a {
 
 .text-center{text-align: center !important;}
 .justify-content-center{justify-content: center !important;}
+.justify-content-end{justify-content: flex-end !important;}
 .justify-content-se{justify-content: space-evenly !important;}
 .justify-content-sb{justify-content: space-between !important;}
 .justify-content-sa{justify-content: space-around !important;}
 .justify-items-center{justify-items: center !important;}
 .justify-self-center{justify-self: center !important;}
+.justify-self-start{justify-self: self-start !important;}
 .align-content-center{align-content: center !important;}
 .align-items-center{align-items: center !important;}
+.align-items-start{align-items: flex-start !important;}
+.align-items-end{align-items: flex-end !important;}
 .align-self-center{align-self: center !important;}
 .place-content-center{place-content: center !important;}
 .place-items-center{place-items: center !important;}
@@ -152,6 +160,9 @@ a {
 // Swal Modal
 .bg-color{background: var(--bgColorMain);}
 .text-color{color: var(--colorText) !important;}
+
+// Other
+.pointer{ cursor: pointer ;}
 
 @media only screen and (max-width: 650px){
     // #root {

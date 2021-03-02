@@ -45,7 +45,7 @@ export const LoginScreen = () => {
                                 onChange={handleLoginInputChange}
                             />
                         </div>
-                        <div className="row-auth">
+                        <div className="row-auth position-relative">
                             <label htmlFor="password">Password:</label>
                             <input type={ visible ? "text" : "password"} 
                                 name="password" 

@@ -48,7 +48,7 @@ export const RegisterScreen = () => {
                             <label htmlFor="email">Email:</label>
                             <input type="text" name="email" value={email} onChange={handleRegisterInputChange}/>
                         </div>
-                        <div className="row-auth">
+                        <div className="row-auth position-relative">
                             <label htmlFor="password">Password:</label>
                             <input type={ visible ? "text" : "password"} name="password" value={password} onChange={handleRegisterInputChange}/>
                             <button className="visible" onClick={isVisible}>

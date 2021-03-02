@@ -8,7 +8,7 @@ import { swalCustomStyle } from '../../../helpers/swalCustom';
 import { BtnSubmit } from '../../ui/Buttons/BtnSubmit';
 import { Card } from '../../ui/Cards/Card';
 import { CardMenu } from '../../ui/Cards/CardMenu';
-import { Table } from '../../ui/Table/Table';
+import { UserTable } from '../../ui/Tables/UserTable';
 import { DateComponent } from '../shared/DateComponent';
 
 import { 
@@ -97,7 +97,7 @@ export const UserScreen = () => {
 
     return (
         <div className="container">
-            <div className="flex-g">
+            <div>
                 <h1>Users</h1>
                 <DateComponent/>
             </div>
@@ -212,7 +212,7 @@ export const UserScreen = () => {
                     <div className="flex-break"><br/></div>
 
                     <div className="subrow m-5">
-                        <Table columns={colums} data={users}/>
+                        <UserTable columns={colums} data={users}/>
                     </div>
                 </div>
 

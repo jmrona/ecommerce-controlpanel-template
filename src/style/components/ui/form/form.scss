@@ -1,0 +1,39 @@
+form{
+    label{
+        padding-bottom: 5px;
+        color: var(--colorText);
+        font-weight: 400;
+    }
+
+    input, 
+    textarea,
+    select{
+        color: var(--black-color);
+        width: 100%;
+        border-radius: 5px;
+        border: none;
+
+        padding: 5px;
+        margin: 3px 0 10px 0;
+
+        font-weight: 600;
+
+        &:focus{
+            outline: none;
+        }
+    }
+    
+    .option {
+        color: var(--black-color);
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    textarea{
+        min-height: 75px ;
+    }
+
+    input[type=number]{
+        padding: 6px 5px;
+    }
+}

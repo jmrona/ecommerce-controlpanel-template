@@ -22,56 +22,108 @@ table{
             td{
                 border-bottom: 1px solid var(--table-border-black);
             }
+        }
+    }
 
-            th{
-                border-bottom: 2px solid var(--table-border-black);
-            }
+    thead{
+        background-color: var(--thead-color);
+        border: 2px solid var(--table-border-black);
+    }
+
+    tbody{
+        margin: 1px;
+
+        tr:hover{
+            background-color: var(--tr-Hover-color);
         }
     }
 }
 
-.table-header{
+.table__header{
     display: inline-flex;
-    flex: 0 0 100%;
+    flex-flow: row wrap;
     justify-content: flex-end;
 
-    text-align: left;
-    position: relative;
+    width: 100%;
     
+    .table__header-filters{
+        display: inline-flex;
+        align-items: center;
 
-    .icon-search{
-        position: absolute;
-        color: var(--colorText);
-        opacity: 0.5;
-        top: 4px;
-        right: 6px;
-    }
-
-    .searchInput{
         padding: 5px;
-        border: none;
-        border-bottom: 1px solid var(--table-border-black);
 
-        color: var(--colorText);
-        background: transparent;
-        opacity: 0.5;
-    
-        &::placeholder{
-            color: var(--colorText);
-            opacity: 0.5;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-top: 2px solid var(--table-border-black);
+        border-left: 2px solid var(--table-border-black);
+        border-right: 2px solid var(--table-border-black);
+
+        background-color: var(--thead-color);
+
+        .filter-options{
+            display: inline-flex;
+            align-items: center;
         }
-    
-        &:focus{
+
+        select{
             color: var(--black-color);
-            background: var(--colorText);
-            border-radius: 50px;
-            opacity: 0.5;
-            outline: none;
+            width: 100%;
+            border-radius: 5px;
+            border: none;
+    
+            padding: 5px;
+    
+            font-weight: 600;
+    
+            &:focus{
+                outline: none;
+            }
         }
+        
+        .option {
+            color: var(--black-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        
+        .searchInput{
+            position: relative;
+            .icon-search{
+                position: absolute;
+                color: var(--black-color);
+                bottom: 1px;
+                right: 4px;
+                background-color: white;
+
+                i{ padding: 6px;}
+            }
+
+            input{
+                width: 100%;
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid var(--table-border-black);
+                
+                color: var(--black-color);
+                font-weight: 600;
+
+        
+            
+                &:focus{
+                    color: var(--black-color);
+                    background: var(--colorText);
+                    border-radius: 5px;
+                    outline: none;
+                }
+            } 
+        }
+
     }
+    
 }
 
-.table-footer{
+.table__footer{
     width: 100%;
 }
 

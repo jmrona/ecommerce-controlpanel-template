@@ -1,27 +1,52 @@
-
 a.btn-flex{
     // width: 100%; 
     // height: 100%;
     display: flex;
     text-align: center;
-    
-    button, .btn{
-        padding: 12px 20px;
-        line-height: 120%;
-        font-weight: 500;
-        
-        flex-basis: 100%;
-        max-height: 100%;
-    
-        border-radius: 10px;
-    }
+}
 
-    .btn-sm {
-        padding: 7px 16px;
-    }
+button, .btn{
+    padding: 12px 20px;
+    line-height: 120%;
+    font-weight: 500;
+    
+    flex-basis: 100%;
+    max-height: 100%;
+
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-sm {
+    padding: 7px 16px;
 }
 
 .btn-block{flex:1 1 auto;}
+
+.btn-float{
+    position: absolute;
+    bottom: 25px;
+    right: 50px;
+
+    i{
+        font-size: 1.2rem;
+        padding: 5px;
+
+        height: 25px;
+        width: 25px;
+    }
+    
+    span{
+        display: none;
+        font-size: 1.2rem;
+    }
+    
+    &:hover{
+        span{
+            display: inline-flex;
+        }
+    }
+}
 
 .btn-success{
     background: var(--success) ;
@@ -148,17 +173,29 @@ a.btn-flex{
     }
 }
 
+.btn-create-full{
+    color: var(--colorText);
+    background: var(--success);
+    border: 1px solid var(--success);
+}
+
 .btn-create{
     color: var(--success);
     background: var(--bgColorMain);
     border: 1px solid var(--success);
-    -webkit-text-stroke: 1px darken($color: #20BFA9, $amount: 30%);
+    i{
+        -webkit-text-stroke: 1px darken($color: #20BFA9, $amount: 30%);
+        &:hover{
+            -webkit-text-stroke: 1px transparent;
+        }
+    }
+
+    transition: var(--duration) ease-in-out;
 
     &:hover{
         background: var(--success);
         border: 1px solid transparent;
         color: var(--colorText);
-        -webkit-text-stroke: 1px transparent;
     }
 }
 
@@ -166,13 +203,19 @@ a.btn-flex{
     color: var(--warning);
     background: var(--bgColorMain);
     border: 1px solid var(--warning);
-    -webkit-text-stroke: 1px darken($color: #FEB95A, $amount: 30%);
+    i{
+        -webkit-text-stroke: 1px darken($color: #FEB95A, $amount: 30%);
+        &:hover{
+            -webkit-text-stroke: 1px transparent;
+        }
+    }
+
+    transition: var(--duration) ease-in-out;
 
     &:hover{
         background: var(--warning);
         border: 1px solid transparent;
         color: var(--colorText);
-        -webkit-text-stroke: 1px transparent;
     }
 }
 
@@ -180,13 +223,19 @@ a.btn-flex{
     color: var(--danger);
     background: var(--bgColorMain);
     border: 1px solid var(--danger);
-    -webkit-text-stroke: 1px darken($color: #EF796D, $amount: 30%);  
+    i{
+        -webkit-text-stroke: 1px darken($color: #EF796D, $amount: 30%);  
+        &:hover{
+            -webkit-text-stroke: 1px transparent;
+        }
+    }
+
+    transition: var(--duration) ease-in-out;
 
     &:hover{
         color: var(--colorText);
         background: var(--danger);
         border: 1px solid transparent;
-        -webkit-text-stroke: 1px transparent;
     }
 }
 

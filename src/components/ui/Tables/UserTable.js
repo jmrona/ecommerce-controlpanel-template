@@ -1,16 +1,18 @@
+import React, { useEffect, useRef, useState } from 'react'
+import { useDispatch } from 'react-redux';
+
 import dayjs from 'dayjs'
-import React, { useEffect, useState } from 'react'
-import Select from 'react-select';
 import ReactPaginate from 'react-paginate';
+import Select from 'react-select';
+import Swal from 'sweetalert2';
+
 import { Btn } from '../Buttons/Btn';
 import { swalCustomStyle } from '../../../helpers/swalCustom';
-import { useDispatch } from 'react-redux';
 import { startBanningUser, startRemovingBanUser } from '../../../actions/users';
-import Swal from 'sweetalert2';
 import { startRecover } from '../../../actions/auth';
 
 
-export const Table = ({columns, data:users}) => {
+export const UserTable = ({columns, data:users}) => {
     
     const [offset, setOffset] = useState(0);
     const [data, setData] = useState([]);
@@ -101,8 +103,9 @@ export const Table = ({columns, data:users}) => {
     useEffect(() => {
         let slice = [];
         if( searchInput !== ''){
-            slice = users.filter( user => user.email.includes(searchInput)).slice(offset, offset + perPage)
-            setPageCount(Math.ceil(users.includes(searchInput).length / perPage))
+            const usersFiltered = users.filter( user => user.email.toLowerCase().includes(searchInput.toLowerCase()))
+            slice = usersFiltered.slice(offset, offset + perPage)
+            setPageCount(Math.ceil(usersFiltered.length / perPage))
         }else{
             slice = users.slice(offset, offset + perPage)
             setPageCount(Math.ceil(users.length / perPage))
@@ -121,7 +124,7 @@ export const Table = ({columns, data:users}) => {
                     : '-'
                     }
                 </td>
-                <td className="col-2 d-flex flex-wrap flex-row">
+                <td className="col-2 d-flex flex-wrap flex-row place-items-center">
                     <div onClick={() => handleSentRecoveryPassword(email)}>
                         <Btn color="create" md="3" sm="3" css="btn-options btn-sm mx-1 tooltip">
                             <i className="fas fa-paper-plane"></i>
@@ -178,19 +181,33 @@ export const Table = ({columns, data:users}) => {
         })
     }
 
+    const filterRef = useRef();
+
+    const handleToggleFilter = () => {
+        filterRef.current.classList.toggle('d-none');
+    }
+
     return (
         <>
-            <div className="table-header">
-                <input 
-                    type="text" 
-                    name="search"
-                    value={searchInput}
-                    onChange={handleInputChange}
-                    placeholder="Search email"
-                    className="col-2 searchInput"
-                />
-                <div className="icon-search">
-                    <i className="fas fa-search"></i>
+            <div className="table__header">
+                <div className="table__header-filters">
+                    <div className="filter-options d-none" ref={filterRef}>
+                        <div className="searchInput ml-1">
+                            <input 
+                                type="text" 
+                                name="search"
+                                value={searchInput}
+                                onChange={handleInputChange}
+                                placeholder="Search email"
+                            />
+                            <div className="icon-search">
+                                <i className="fas fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="btn-filter">
+                        <i className="fas fa-filter p-2 pointer" onClick={handleToggleFilter}/>
+                    </div>
                 </div>
             </div>
             <table>
@@ -204,11 +221,17 @@ export const Table = ({columns, data:users}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data}
+                    {
+                        data.length > 0
+                        ? (data)
+                        : (<tr>
+                           <td colSpan={columns.length} className="col-12 text-center">No data found</td> 
+                        </tr>)
+                    }
                 </tbody>
             </table>
 
-            <div className="table-footer mt-5">
+            <div className="table__footer mt-5">
                 <div className="subrow justify-content-center align-items-center">
                     {
                         pageCount > 0

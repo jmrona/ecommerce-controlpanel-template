@@ -7,13 +7,13 @@ export const Btn = ({href, outline, block, color, children, sm, md, css}) => {
             {
                 (!outline)
                 ?
-                <div className={"btn btn-"+color +" "+css}>
+                <button className={"btn btn-"+color +" "+css}>
                     {children}
-                </div>
+                </button>
                 :
-                <div className={"btn btn-outline-"+color +" "+css}>
+                <button className={"btn btn-outline-"+color +" "+css}>
                     {children}
-                </div>
+                </button>
             }
             
         </a>

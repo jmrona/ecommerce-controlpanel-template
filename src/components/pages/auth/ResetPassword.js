@@ -46,7 +46,7 @@ export const ResetPassword = ({history}) => {
                                 onChange={handleResetInputChange}
                             />
                         </div>
-                        <div className="row-auth">
+                        <div className="row-auth position-relative">
                             <label htmlFor="newPassword">New password:</label>
                             <input type={ visible ? "text" : "password"} 
                                 name="newPassword" 

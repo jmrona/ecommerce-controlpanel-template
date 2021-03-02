@@ -5,17 +5,18 @@ a.btn-flex {
   text-align: center;
 }
 
-a.btn-flex button, a.btn-flex .btn {
+button, .btn {
   padding: 12px 20px;
   line-height: 120%;
   font-weight: 500;
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
   max-height: 100%;
-  border-radius: 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-a.btn-flex .btn-sm {
+.btn-sm {
   padding: 7px 16px;
 }
 
@@ -23,6 +24,30 @@ a.btn-flex .btn-sm {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+}
+
+.btn-float {
+  position: absolute;
+  bottom: 25px;
+  right: 50px;
+}
+
+.btn-float i {
+  font-size: 1.2rem;
+  padding: 5px;
+  height: 25px;
+  width: 25px;
+}
+
+.btn-float span {
+  display: none;
+  font-size: 1.2rem;
+}
+
+.btn-float:hover span {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
 
 .btn-success {
@@ -185,46 +210,76 @@ a.btn-flex .btn-sm {
   height: 1.1rem !important;
 }
 
+.btn-create-full {
+  color: var(--colorText);
+  background: var(--success);
+  border: 1px solid var(--success);
+}
+
 .btn-create {
   color: var(--success);
   background: var(--bgColorMain);
   border: 1px solid var(--success);
+  -webkit-transition: var(--duration) ease-in-out;
+  transition: var(--duration) ease-in-out;
+}
+
+.btn-create i {
   -webkit-text-stroke: 1px #0a3c35;
+}
+
+.btn-create i:hover {
+  -webkit-text-stroke: 1px transparent;
 }
 
 .btn-create:hover {
   background: var(--success);
   border: 1px solid transparent;
   color: var(--colorText);
-  -webkit-text-stroke: 1px transparent;
 }
 
 .btn-edit {
   color: var(--warning);
   background: var(--bgColorMain);
   border: 1px solid var(--warning);
+  -webkit-transition: var(--duration) ease-in-out;
+  transition: var(--duration) ease-in-out;
+}
+
+.btn-edit i {
   -webkit-text-stroke: 1px #be6e01;
+}
+
+.btn-edit i:hover {
+  -webkit-text-stroke: 1px transparent;
 }
 
 .btn-edit:hover {
   background: var(--warning);
   border: 1px solid transparent;
   color: var(--colorText);
-  -webkit-text-stroke: 1px transparent;
 }
 
 .btn-delete {
   color: var(--danger);
   background: var(--bgColorMain);
   border: 1px solid var(--danger);
+  -webkit-transition: var(--duration) ease-in-out;
+  transition: var(--duration) ease-in-out;
+}
+
+.btn-delete i {
   -webkit-text-stroke: 1px #b02213;
+}
+
+.btn-delete i:hover {
+  -webkit-text-stroke: 1px transparent;
 }
 
 .btn-delete:hover {
   color: var(--colorText);
   background: var(--danger);
   border: 1px solid transparent;
-  -webkit-text-stroke: 1px transparent;
 }
 
 button:focus {

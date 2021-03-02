@@ -61,25 +61,39 @@ html[data-theme='dark'] {
     --bgColorNav: #0B0A0F;
     --active:#3f78ce;
 
+    // Card
     --card-content-black: #1B1A1F;
     --card-border-black: #141414;
     --card-content-default: #eee;
     --card-border-default: #eee;
 
-    //DateComponents
+    // Table
+    --table-border-color: ;
+    --thead-color: #25426d;
+    --tr-Hover-color: #252e3f;
+    --table-border-black: #0b0a0f82;
+
+    // DateComponents
     --opacity: 0.5;
 }
 
 html[data-theme='light'] {
     --colorText: #1b1b1b;
-    --bgColorMain: #c8c8c9;
+    --bgColorMain: #d5d8dd;
     --bgColorNav:#EBEBF5;
     --active:#2e5896;
 
+    // Card
     --card-content-black: #e2e2e2;
     --card-border-black: #cccccc;
     --card-content-default: #242424;
     --card-border-default: #0f0f0f;
+
+    // Table
+    --table-border-color: ;
+    --thead-color: #91b2e0;
+    --tr-Hover-color: #acacac;
+    --table-border-black: #3f618082;
 
     //DateComponents
     --opacity: 1;
