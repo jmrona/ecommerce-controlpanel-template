@@ -1,27 +1,27 @@
 @charset "UTF-8";
 div.card-border-success {
   background: linear-gradient(35deg, var(--card-border-black) 60%, var(--success) 100%);
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 div.card-border-danger {
   background: linear-gradient(35deg, var(--card-border-black) 60%, var(--danger) 100%);
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 div.card-border-warning {
   background: linear-gradient(35deg, var(--card-border-black) 60%, var(--warning) 100%);
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 div.card-border-default {
   background: linear-gradient(35deg, var(--card-border-black) 60%, var(--card-border-default) 100%);
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 div.card-border-blue {
   background: linear-gradient(35deg, var(--card-border-black) 60%, var(--card-border-blue) 100%);
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 div.card-success {
@@ -53,7 +53,7 @@ div.card {
   /* !importanté */
   border: solid 2px transparent;
   /* !importanté */
-  border-radius: 20px;
+  border-radius: 5px;
 }
 
 div.card .card-header > div {

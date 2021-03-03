@@ -1,0 +1,234 @@
+.banner {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    background: var(--banner-content-black);
+
+    border-radius: 5px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+    padding: 1rem;
+
+    overflow: hidden;
+
+    position: relative;
+    z-index: 0;
+
+    .circle{
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    .circle:nth-child(1){
+        top: -50px;
+        left: -35px;
+        
+        width: 150px;
+        height: 150px;
+    }
+
+    .circle:nth-child(2){
+        bottom: 20px;
+        left: 90px;
+
+        width: 70px;
+        height: 70px;
+    }
+
+    .circle:nth-child(3){
+        top: 25px;
+        left: 160px;
+
+        width: 30px;
+        height: 30px;
+    }
+
+    .rectangle{
+        position: absolute;
+        border-radius: 5px;
+        z-index: 1;
+    }
+
+    .rectangle:nth-child(1){
+        top: 30px;
+        right: 280px;
+        transform: rotateZ(45deg);
+
+        width: 150px;
+        height: 30px;
+    }
+
+    .rectangle:nth-child(2){
+        top: -5px;
+        right: 290px;
+        transform: rotateZ(45deg);
+
+        width: 70px;
+        height: 30px;
+    }
+
+    .rectangle:nth-child(3){
+        top: 90px;
+        right: 147px;
+        transform: rotateZ(45deg);
+
+        width: 170px;
+        height: 30px;
+    }
+
+    .square{
+        position: absolute;
+        border-radius: 5px;
+    }
+
+    .square:nth-child(1){
+        top: -30px;
+        right: 280px;
+        transform: rotateZ(60deg);
+
+        width: 170px;
+        height: 170px;
+    }
+
+    .square:nth-child(2){
+        top: -5px;
+        right: 215px;
+        transform: rotateZ(40deg);
+
+        width: 50px;
+        height: 50px;
+    }
+
+    .square:nth-child(3){
+        top: 65px;
+        right: 215px;
+        transform: rotateZ(70deg);
+
+        width: 25px;
+        height: 25px;
+    }
+
+}
+
+.banner-content {
+    display: flex;
+    flex-flow: column nowrap;
+    place-items: center;
+
+    color: var(--colorText);
+
+    max-width:70%;
+    padding-left: 2rem;
+
+    z-index: 2;
+    p{
+        margin: 0;
+        font-size: 4rem;
+    }
+}
+
+.banner-icon {
+    width: 30%;
+    text-align: center;
+    
+    i{
+        border-radius: 50%;
+
+        font-size: 2rem;
+        text-align: center;
+    
+        padding: 2rem;
+
+        box-shadow:    5px 5px 10px var(--banner-shadow-1),
+        -5px -5px 10px var(--banner-shadow-2);
+    }
+}
+
+.banner-border{
+    border-radius: 5px;
+}
+
+.banner-border-blue{
+    background: linear-gradient(-35deg, var(--banner-border-black) 73%, var(--main-color) 100%);
+}
+
+.banner-border-success{
+    background: linear-gradient(-35deg, var(--banner-border-black) 73%, var(--success) 100%);
+}
+
+.banner-border-danger{
+    background: linear-gradient(-35deg, var(--banner-border-black) 73%, var(--danger) 100%);
+}
+
+.banner-border-warning{
+    background: linear-gradient(-35deg, var(--banner-border-black) 73%, var(--warning) 100%);
+}
+
+.banner-border-default{
+    background: linear-gradient(-35deg, var(--banner-border-black) 73%, var(--banner-border-default) 100%);
+}
+
+.circle-blue{
+    background: var(--banner-figure-blue);
+}
+
+.circle-success{
+    background: var(--banner-figure-success);
+}
+
+.circle-danger{
+    background: var(--banner-figure-danger);
+}
+
+.circle-warning{
+    background: var(--banner-figure-warning);
+}
+
+.circle-default{
+    background: var(--banner-figure-default);
+};
+
+.square-blue{
+    background: var(--banner-figure-blue);
+}
+
+.square-success{
+    background: var(--banner-figure-success);
+}
+
+.square-danger{
+    background: var(--banner-figure-danger);
+}
+
+.square-warning{
+    background: var(--banner-figure-warning);
+}
+
+.square-default{
+    background: var(--banner-figure-default);
+};
+
+.rectangle-blue{
+    background: var(--banner-figure-blue);
+}
+
+.rectangle-success{
+    background: var(--banner-figure-success);
+}
+
+.rectangle-danger{
+    background: var(--banner-figure-danger);
+}
+
+.rectangle-warning{
+    background: var(--banner-figure-warning);
+}
+
+.rectangle-default{
+    background: var(--banner-figure-default);
+};
+

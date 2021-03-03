@@ -4,7 +4,8 @@
 
 .avatar img {
   width: 100%;
-  border-radius: 25px;
+  border-radius: 5px;
+  margin-bottom: -2rem;
 }
 
 .avatar .avatar-profile {
@@ -28,7 +29,7 @@
 .avatar i.btn-options.edit-avatar {
   background-color: var(--warning);
   right: 55px;
-  bottom: 25px;
+  bottom: -15px;
 }
 
 .avatar i.btn-options.edit-avatar:hover {
@@ -41,7 +42,7 @@
 .avatar i.btn-options.delete-avatar {
   background-color: var(--danger);
   right: 15px;
-  bottom: 25px;
+  bottom: -15px;
 }
 
 .avatar i.btn-options.delete-avatar:hover {

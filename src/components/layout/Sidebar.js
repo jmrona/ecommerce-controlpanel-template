@@ -45,6 +45,12 @@ export const Sidebar = ({history}) => {
                                 <span>Users</span>
                         </li>
                     </NavLink>
+                    <NavLink to="/categories" exact activeClassName="active">
+                        <li className="sidebar-items">
+                                <i className="fas fa-tags"></i>
+                                <span>Categories</span>
+                        </li>
+                    </NavLink>
                     <NavLink to="/products" exact activeClassName="active">
                         <li className="sidebar-items">
                                 <i className="fas fa-boxes"></i>

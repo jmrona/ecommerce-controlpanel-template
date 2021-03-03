@@ -9,7 +9,7 @@ import { BtnSubmit } from '../../ui/Buttons/BtnSubmit';
 import { Card } from '../../ui/Cards/Card';
 import { CardMenu } from '../../ui/Cards/CardMenu';
 import { UserTable } from '../../ui/Tables/UserTable';
-import { DateComponent } from '../shared/DateComponent';
+import { DateComponent } from '../../shared/DateComponent';
 
 import { 
     startGettingUsers, 
@@ -17,6 +17,7 @@ import {
     startSettingAvatar, 
     startDeletingAvatar 
 } from '../../../actions/users';
+import { Banner } from '../../ui/Banners/Banner';
 
 export const UserScreen = () => {
 
@@ -186,28 +187,16 @@ export const UserScreen = () => {
                 </Card>
                 
                 <div className="subrow justify-content-se">
-                    <Card color="success" sm="12" md="4" css="m-1">
-                        <div className="card-header justify-content-center">
-                            <div className="text-center">Active users</div>
-                        </div>
-
-                        <div className="card-body">
-                            <p className="text-center active-user">
-                                {usersActive}
-                            </p>
-                        </div>
-                    </Card>
-                    <Card color="danger" sm="12" md="4" css="m-1">
-                        <div className="card-header justify-content-center">
-                            <div className="text-center">Banned users</div>
-                        </div>
-
-                        <div className="card-body">
-                            <p className="text-center banned-user">
-                                {usersBanned}
-                            </p>
-                        </div>
-                    </Card>
+                    
+                    <Banner color="success" md="4" sm="12" css="m-1" icon="fas fa-check">
+                        <p>{usersActive}</p>
+                        <small>Users actives</small>
+                    </Banner>
+                    
+                    <Banner color="danger" md="4" sm="12" css="m-1" icon="fas fa-ban">
+                        <p>{usersBanned}</p>
+                        <small>Users banned</small>
+                    </Banner>
                     
                     <div className="flex-break"><br/></div>
 

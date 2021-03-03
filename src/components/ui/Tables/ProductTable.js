@@ -5,7 +5,7 @@ import ReactPaginate from 'react-paginate'
 import Select from 'react-select'
 
 import { Btn } from '../Buttons/Btn';
-import { Modal } from '../../pages/shared/Modal';
+import { Modal } from '../../shared/Modal';
 import { ProductForm } from '../Forms/ProductForm';
 import { useDispatch, useSelector } from 'react-redux';
 import { BtnFloat } from '../Buttons/BtnFloat';

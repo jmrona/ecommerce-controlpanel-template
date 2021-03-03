@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { Card } from '../../ui/Cards/Card'
 import { ProductTable } from '../../ui/Tables/ProductTable'
-import { DateComponent } from '../shared/DateComponent'
+import { DateComponent } from '../../shared/DateComponent'
 
 import { startGettingCategories } from '../../../actions/categories'
 import { startGettingProducts } from '../../../actions/products'
+import { Banner } from '../../ui/Banners/Banner'
 
 export const ProductScreen = () => {
    
@@ -35,39 +36,20 @@ export const ProductScreen = () => {
                 </div>
                 <div className="flex-break"><br/></div>
                 <div className="row justify-content-se">
-                    <Card color="success" sm="6" md="3" css="m-1 ">
-                        <div className="card-header justify-content-center">
-                            <div className="text-center">Public</div>
-                        </div>
+                    <Banner color="success" md="3" sm="12" css="m-1" icon="fas fa-check">
+                        <p>{productsPublic}</p>
+                        <small>Products public</small>
+                    </Banner>
 
-                        <div className="card-body">
-                            <p className="text-center active-user">
-                                {productsPublic}
-                            </p>
-                        </div>
-                    </Card>
-                    <Card color="danger" sm="6" md="3" css="m-1 ">
-                        <div className="card-header justify-content-center">
-                            <div className="text-center">Drafts</div>
-                        </div>
+                    <Banner color="danger" md="3" sm="12" css="m-1" icon="fas fa-trash">
+                        <p>{productsDrafts}</p>
+                        <small>Products drafts</small>
+                    </Banner>
 
-                        <div className="card-body">
-                            <p className="text-center active-user">
-                                {productsDrafts}
-                            </p>
-                        </div>
-                    </Card>
-                    <Card color="success" sm="6" md="3" css="m-1 ">
-                        <div className="card-header justify-content-center">
-                            <div className="text-center">Discounts actives</div>
-                        </div>
-
-                        <div className="card-body">
-                            <p className="text-center active-user">
-                                {productsOnDeals}
-                            </p>
-                        </div>
-                    </Card>
+                    <Banner color="blue" md="3" sm="12" css="m-1" icon="fas fa-percent">
+                        <p>{productsOnDeals}</p>
+                        <small>Discounts active</small>
+                    </Banner>
                     
                 </div>
                 <div className="row">

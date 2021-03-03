@@ -31,6 +31,13 @@
     --card-border-warning: #f8cc8e;
     --card-border-default: #ffffff;
     --card-border-blue: #71a2ec;
+
+    //Banners
+    --banner-border-success: #39ffe5;
+    --banner-border-danger: #ff988c;
+    --banner-border-warning: #f8cc8e;
+    --banner-border-default: #ffffff;
+    --banner-border-blue: #71a2ec;
     
     //Table
     --table-border-black: #0b0a0f82;
@@ -50,9 +57,6 @@
     //Colors
     --black-color: #1b1b1b;
     --white-color: #eee;
-
-    //Shadow
-    --shadow-color: #242424;
 }
 
 html[data-theme='dark'] {
@@ -61,11 +65,27 @@ html[data-theme='dark'] {
     --bgColorNav: #0B0A0F;
     --active:#3f78ce;
 
+    //Shadow
+    --shadow-color: #0B0A0F;
+
     // Card
     --card-content-black: #1B1A1F;
-    --card-border-black: #141414;
+    --card-border-black: #111111;
     --card-content-default: #eee;
     --card-border-default: #eee;
+
+    // Banner
+    --banner-content-black: #1B1A1F;
+    --banner-border-black: #111111;
+    --banner-content-default: #eee;
+    --banner-border-default: #eee;
+    --banner-figure-blue: #192d4b;
+    --banner-figure-success: #116358;
+    --banner-figure-danger: #80413a;
+    --banner-figure-warning: #79582b;
+    --banner-figure-default: #797979;
+    --banner-shadow-1: #141417;
+    --banner-shadow-2: #222127;
 
     // Table
     --table-border-color: ;
@@ -83,11 +103,27 @@ html[data-theme='light'] {
     --bgColorNav:#EBEBF5;
     --active:#2e5896;
 
+    //Shadow
+    --shadow-color: #8c8f92;
+
     // Card
     --card-content-black: #e2e2e2;
     --card-border-black: #cccccc;
     --card-content-default: #242424;
     --card-border-default: #0f0f0f;
+
+    // Banner
+    --banner-content-black: #ebebeb;
+    --banner-border-black: #ccc;
+    --banner-content-default: #ebebeb;
+    --banner-border-default: #ccc;
+    --banner-figure-blue: #aabcdb;
+    --banner-figure-success: #97d1c9;
+    --banner-figure-danger: #d4a29c;
+    --banner-figure-warning: #cfb999;
+    --banner-figure-default: #b4b4b4;
+    --banner-shadow-1: #c8c8c8;
+    --banner-shadow-2: #ffffff;
 
     // Table
     --table-border-color: ;

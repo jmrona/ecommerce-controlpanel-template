@@ -3,7 +3,8 @@ import { Btn } from '../../ui/Buttons/Btn';
 
 import { Card } from '../../ui/Cards/Card'
 import { CardMenu } from '../../ui/Cards/CardMenu';
-import { DateComponent } from '../shared/DateComponent';
+import { DateComponent } from '../../shared/DateComponent';
+import { Banner } from '../../ui/Banners/Banner';
 
 export const DashboardScreen = () => {
     
@@ -18,6 +19,28 @@ export const DashboardScreen = () => {
             </div>
             <div className="flex-break"></div>
                 
+            <div className="row">
+                <Banner color="blue" md="3" sm="12" css="m-1" icon="fas fa-tags">
+                    <p>8</p>
+                    <small>Actives</small>
+                </Banner>
+
+                <Banner color="success" md="3" sm="12" css="m-1" icon="fas fa-check" type="circle">
+                    <p>8</p>
+                    <small>Actives</small>
+                </Banner>
+
+                <Banner color="warning" md="3" sm="12" css="m-1" icon="fas fa-pen" type="square">
+                    <p>8</p>
+                    <small>Actives</small>
+                </Banner>
+
+                <Banner color="default" md="3" sm="12" css="m-1" icon="fas fa-pen" type="square">
+                    <p>8</p>
+                    <small>Actives</small>
+                </Banner>
+            </div>
+
             <div className="row">
 
                 <Card color="danger" title="Otro" css="flex-1 m-1" sm="12">

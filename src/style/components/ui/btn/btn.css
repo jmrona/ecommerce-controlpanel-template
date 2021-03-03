@@ -16,6 +16,11 @@ button, .btn {
   cursor: pointer;
 }
 
+button:hover, button focus, .btn:hover, .btn focus {
+  -webkit-box-shadow: 0 2px 25px 0px var(--shadow-color) !important;
+          box-shadow: 0 2px 25px 0px var(--shadow-color) !important;
+}
+
 .btn-sm {
   padding: 7px 16px;
 }
@@ -59,8 +64,6 @@ button, .btn {
 
 .btn-success:hover, .btn-success focus {
   background: var(--success-hover);
-  -webkit-box-shadow: 0 2px 10px 0 var(--success-shadow);
-          box-shadow: 0 2px 10px 0 var(--success-shadow);
 }
 
 .btn-outline-success {
@@ -73,8 +76,6 @@ button, .btn {
 
 .btn-outline-success:hover, .btn-outline-success focus {
   background: var(--success-hover);
-  -webkit-box-shadow: 0 2px 10px 0 var(--success-shadow);
-          box-shadow: 0 2px 10px 0 var(--success-shadow);
 }
 
 .btn-danger {
@@ -86,8 +87,6 @@ button, .btn {
 
 .btn-danger:hover, .btn-danger focus {
   background: var(--danger-hover);
-  -webkit-box-shadow: 0 2px 10px 0 var(--danger-shadow);
-          box-shadow: 0 2px 10px 0 var(--danger-shadow);
 }
 
 .btn-outline-danger {
@@ -100,8 +99,6 @@ button, .btn {
 
 .btn-outline-danger:hover, .btn-outline-danger focus {
   background: var(--danger-hover);
-  -webkit-box-shadow: 0 2px 10px 0 var(--danger-shadow);
-          box-shadow: 0 2px 10px 0 var(--danger-shadow);
 }
 
 .btn-warning {
@@ -127,8 +124,6 @@ button, .btn {
 
 .btn-outline-warning:hover, .btn-outline-warning focus {
   background: var(--warning-hover);
-  -webkit-box-shadow: 0 2px 10px 0 #b1813e69;
-          box-shadow: 0 2px 10px 0 #b1813e69;
 }
 
 .btn-default {
@@ -141,8 +136,6 @@ button, .btn {
 
 .btn-default:hover, .btn-default focus {
   background: var(--default-hover);
-  -webkit-box-shadow: 0 2px 10px 0 var(--default-shadow);
-          box-shadow: 0 2px 10px 0 var(--default-shadow);
 }
 
 .btn-outline-default {
@@ -156,8 +149,6 @@ button, .btn {
 .btn-outline-default:hover, .btn-outline-default focus {
   color: #161616;
   background: var(--default-hover);
-  -webkit-box-shadow: 0 2px 10px 0 var(--default-shadow);
-          box-shadow: 0 2px 10px 0 var(--default-shadow);
 }
 
 .btn-blue {
@@ -169,8 +160,6 @@ button, .btn {
 
 .btn-blue:hover, .btn-blue focus {
   background: var(--blue-hover);
-  -webkit-box-shadow: 0 2px 10px 0 var(--blue-shadow);
-          box-shadow: 0 2px 10px 0 var(--blue-shadow);
 }
 
 .btn-outline-blue {
@@ -183,8 +172,6 @@ button, .btn {
 
 .btn-outline-blue:hover, .btn-outline-blue focus {
   background: var(--blue-hover);
-  -webkit-box-shadow: 0 5px 10px 5px var(--blue-shadow);
-          box-shadow: 0 5px 10px 5px var(--blue-shadow);
 }
 
 .btn-options {

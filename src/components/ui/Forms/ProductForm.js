@@ -6,7 +6,7 @@ import { BtnSubmit } from '../Buttons/BtnSubmit';
 
 export const ProductForm = ({categories, closeModal, product}) => {
     const { id, name:ename, description:edescription, price:eprice, status:estatus, in_discount:ein_discount, discount:ediscount, category_id:ecategory } = product;
-    const [formData, handleInputChange, reset] = useForm({
+    const [formData, handleInputChange] = useForm({
         name: ename || '',
         description: edescription || '',
         price: eprice || '',

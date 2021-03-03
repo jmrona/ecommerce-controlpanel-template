@@ -10,6 +10,7 @@ import {
 import { DashboardScreen } from './components/pages/dashboard/DashboardScreen';
 import { ProductScreen } from './components/pages/products/ProductScreen';
 import { UserScreen } from './components/pages/users/UserScreen';
+import { CategoryScreen } from './components/pages/categories/CategoryScreen';
 
 // Layout
 import { NavBar } from './components/layout/NavBar';
@@ -27,6 +28,7 @@ export const Admin = () => {
                             <Route exact path="/" component={DashboardScreen}/>
                             <Route exact path="/users" component={UserScreen}/>
                             <Route exact path="/products" component={ProductScreen}/>
+                            <Route exact path="/categories" component={CategoryScreen}/>
                             <Redirect to="/"/>
                         </Switch>
                     </main>
