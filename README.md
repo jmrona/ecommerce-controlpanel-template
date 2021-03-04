@@ -13,10 +13,18 @@
 
 It's a nice app for ecommerces developed by me in order to practice the use of redux, redux and Laravel (API). 
 
-Used: 
-* create-react-app;
-* SASS;
-* redux;
+Used (frontend): 
+* JavaScript
+* React with hooks
+* React router
+* Redux
+* SASS
+
+Used (backend): 
+* PHP 
+* Laravel
+* Laravel sanctum
+* Laravel intervention/image
 
 Application allowes: 
 * To create, read, update and delete categories.
