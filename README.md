@@ -11,7 +11,7 @@
 
 # Control panel - Ecommerce (developing)
 
-It's a nice app for ecommerces developed by me in order to practice the use of redux, redux and Laravel (API). 
+It's a nice app for ecommerces developed by me in order to practice the use of react, redux and Laravel (API). 
 
 Used (frontend): 
 * JavaScript
