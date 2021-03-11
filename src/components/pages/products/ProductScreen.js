@@ -36,17 +36,17 @@ export const ProductScreen = () => {
                 </div>
                 <div className="flex-break"><br/></div>
                 <div className="row justify-content-se">
-                    <Banner color="success" md="3" sm="12" css="m-1" icon="fas fa-check">
+                    <Banner color="success" md="3" sm="12" css="m-1" icon="fas fa-check" type="rectangle">
                         <p>{productsPublic}</p>
                         <small>Products public</small>
                     </Banner>
 
-                    <Banner color="danger" md="3" sm="12" css="m-1" icon="fas fa-trash">
+                    <Banner color="danger" md="3" sm="12" css="m-1" icon="fas fa-trash" type="square">
                         <p>{productsDrafts}</p>
                         <small>Products drafts</small>
                     </Banner>
 
-                    <Banner color="blue" md="3" sm="12" css="m-1" icon="fas fa-percent">
+                    <Banner color="blue" md="3" sm="12" css="m-1" icon="fas fa-percent" type="circle">
                         <p>{productsOnDeals}</p>
                         <small>Discounts active</small>
                     </Banner>

@@ -19,6 +19,8 @@ export const ProductTable = ({columns, data:products}) => {
     const [pageCount, setPageCount] = useState(0);
     const [data, setData] = useState([]);
     const [searchInput, setSearchInput] = useState('');
+    const [statusFilter, setStatusFilter] = useState(2);
+    const [discountFilter, setDiscountFilter] = useState(2);
 
     const [openModal, setOpenModal] = useState(false);
 
@@ -26,43 +28,76 @@ export const ProductTable = ({columns, data:products}) => {
         setSearchInput(e.target.value)
     }
 
+    const handleStatusFilter = (e) => {
+        setStatusFilter(parseInt(e.target.value));
+    }
+
+    const handleDiscountFilter = (e) => {
+        setDiscountFilter(parseInt(e.target.value));
+    }
+
     const handleCreateProduct = () =>{
         dispatch(startCleaningActiveProduct());
         setOpenModal(true);
     }
 
-    const handleEditProduct = (id, name, description, category_id, price, in_discount, discount, status) => {
-        const product = {id,
+    const handleEditProduct = (id, name, description, category_id, price, in_discount, discount, status, get_pictures) => {
+        const product = {
+            id,
             name, 
             description, 
             category_id, 
             price, 
             in_discount, 
             discount, 
-            status
+            status,
+            get_pictures
         };
         
         dispatch(startEditingProduct(product));
         setOpenModal(true);
     }
-    const {productActive} = useSelector(state => state.products)
 
     const handleDeleteProduct = (id) => {
         dispatch(startDeletingProduct(id));
     }
 
+    const {productActive} = useSelector(state => state.products)
+
     useEffect(() => {
         let slice = [];
+        let productsFiltered = [];
         if( searchInput !== ''){
-            const productsFiltered = products.filter( product => product.name.toLowerCase().includes(searchInput.toLowerCase()));
+            productsFiltered.length > 0
+            ? productsFiltered = productsFiltered.filter( product => product.name.toLowerCase().includes(searchInput.toLowerCase()))
+            : productsFiltered = products.filter( product => product.name.toLowerCase().includes(searchInput.toLowerCase()))
             slice = productsFiltered.slice(offset, offset + perPage)
             setPageCount(Math.ceil(productsFiltered.length / perPage))
-        }else{
+        }
+
+        if( statusFilter !== 2){
+            productsFiltered.length > 0
+            ? productsFiltered = productsFiltered.filter( p => p.status === parseInt(statusFilter))
+            : productsFiltered = products.filter( p => p.status === parseInt(statusFilter))
+            
+            slice = productsFiltered.slice(offset, offset + perPage)
+            setPageCount(Math.ceil(productsFiltered.length / perPage))
+        }
+
+        if( discountFilter !== 2){
+            productsFiltered.length > 0
+            ? productsFiltered = productsFiltered.filter( p => p.in_discount === parseInt(discountFilter) )
+            : productsFiltered = products.filter( p => p.in_discount === parseInt(discountFilter) )
+            slice = productsFiltered.slice(offset, offset + perPage)
+            setPageCount(Math.ceil(productsFiltered.length / perPage))
+        }
+        
+        if(searchInput === '' && statusFilter === 2 && discountFilter === 2){
             slice = products.slice(offset, offset + perPage)
             setPageCount(Math.ceil(products.length / perPage))
         }
 
-        const postData = slice.map( ({id, name, description, category_id, price, in_discount, discount, status, created_at}) => 
+        const postData = slice.map( ({id, name, description, category_id, price, in_discount, discount, status, created_at, get_pictures}) => 
             <tr key={id}>
                 <td className="col-2">{name}</td>
                 <td className="col-2">{description}</td>
@@ -76,7 +111,7 @@ export const ProductTable = ({columns, data:products}) => {
                 <td className="col-2">{status === 1 ? 'Public' : 'Draft'}</td>
                 <td className="col-2">{ dayjs(created_at).format('DD/MM/YYYY HH:mm:ss')}</td>
                 <td className="col-2 d-flex flex-wrap flex-row place-items-center">
-                    <div onClick={() => handleEditProduct(id, name, description, category_id, price, in_discount, discount, status)}>
+                    <div onClick={() => handleEditProduct(id, name, description, category_id, price, in_discount, discount, status, get_pictures)}>
                         <Btn color="edit" md="3" sm="3" css="btn-options btn-sm mx-1 tooltip">
                             <i className="fas fa-pen"></i>
                             <span className="tooltiptext">Edit product</span>
@@ -93,7 +128,7 @@ export const ProductTable = ({columns, data:products}) => {
         );
         setData(postData)
         
-    }, [offset, perPage, products, searchInput])
+    }, [offset, perPage, products, searchInput, statusFilter, discountFilter])
 
     
     const dispatch = useDispatch();
@@ -149,14 +184,14 @@ export const ProductTable = ({columns, data:products}) => {
                 <div className="table__header-filters">
                     <div className="filter-options d-none" ref={filterRef}>
                         <div className="mr-2 ml-1">
-                            <select defaultValue="2">
+                            <select defaultValue={statusFilter} onChange={handleStatusFilter}>
                                 <option value="0">Draft</option>
                                 <option value="1">Public</option>
                                 <option value="2">Status</option>
                             </select>
                         </div>
                         <div className="mr-2">
-                            <select defaultValue="2">
+                            <select defaultValue={discountFilter} onChange={handleDiscountFilter}>
                                 <option value="0">No</option>
                                 <option value="1">Yes</option>
                                 <option value="2">Discount?</option>
@@ -240,7 +275,10 @@ export const ProductTable = ({columns, data:products}) => {
                 Object.keys(productActive).length <= 0
                 ?
                 <Modal title="Add new product" isOpen={openModal} onClose={() => setOpenModal(false)} >
-                    <ProductForm categories={categories} closeModal={()=>setOpenModal(false) } product={productActive || ''}/>
+                    <ProductForm 
+                        categories={categories} 
+                        closeModal={()=>setOpenModal(false) } 
+                        product={productActive}/>
                 </Modal>
                 :
                 <Modal title="Edit product" isOpen={openModal} onClose={() => setOpenModal(false)} >

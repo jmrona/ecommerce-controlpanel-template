@@ -193,7 +193,7 @@ export const UserScreen = () => {
                         <small>Users actives</small>
                     </Banner>
                     
-                    <Banner color="danger" md="4" sm="12" css="m-1" icon="fas fa-ban">
+                    <Banner color="danger" md="4" sm="12" css="m-1" icon="fas fa-ban" type="square">
                         <p>{usersBanned}</p>
                         <small>Users banned</small>
                     </Banner>

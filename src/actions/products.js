@@ -1,5 +1,4 @@
-import { fetchConToken} from "../helpers/fetch";
-import { fileUpload } from "../helpers/fileUpload";
+import { fetchConToken, fetchConTokenAndFile } from "../helpers/fetch";
 import { swalCustomStyle } from "../helpers/swalCustom";
 import { types } from "../types/types";
  
@@ -15,10 +14,23 @@ export const startGettingProducts = () => {
     }
 }
 
-export const startCreatingProduct = (name, description, price, status, in_discount, discount, category) => {
+export const startCreatingProduct = (name, description, price, status, in_discount, discount, category, gallery) => {
     return async( dispatch ) => {
-        const resp = await fetchConToken('products', {name, description, price, status, in_discount, discount, category}, 'POST');
-        const {ok, products, msg} = await resp.json();
+        let formData = new FormData();
+        formData.append('name', name);
+        formData.append('description', description);
+        formData.append('price', price);
+        formData.append('status', status);
+        formData.append('in_discount', in_discount);
+        formData.append('discount', discount);
+        formData.append('category', category);
+        for (let i = 0; i < gallery.length; i++) {
+            formData.append('files[]', gallery[i]);
+        }
+
+        const resp = await fetchConTokenAndFile('products', {formData}, 'POST');
+        const {data} = resp
+        const {ok, products, msg} = data;
         if(ok){
             swalCustomStyle.fire('Successfully', msg, 'success');
             dispatch(productLoaded(products))
@@ -28,10 +40,24 @@ export const startCreatingProduct = (name, description, price, status, in_discou
     }
 }
 
-export const startUpdatingProduct = (id, name, description, price, status, in_discount, discount, category) => {
+export const startUpdatingProduct = (id, name, description, price, status, in_discount, discount, category, gallery) => {
     return async( dispatch ) => {
-        const resp = await fetchConToken('product/'+id, {name, description, price, status, in_discount, discount, category}, 'PUT');
-        const {ok, products, msg} = await resp.json();
+        let formData = new FormData();
+        formData.append('id', id);
+        formData.append('name', name);
+        formData.append('description', description);
+        formData.append('price', price);
+        formData.append('status', status);
+        formData.append('in_discount', in_discount);
+        formData.append('discount', discount);
+        formData.append('category', category);
+        for (let i = 0; i < gallery.length; i++) {
+            formData.append('files[]', gallery[i]);
+        }
+
+        const resp = await fetchConTokenAndFile('product/'+id, {formData}, 'POST');
+        const {data} = resp
+        const {ok, products, msg} = data;
         if(ok){
             swalCustomStyle.fire('Successfully', msg, 'success');
             dispatch(productLoaded(products))
@@ -48,6 +74,20 @@ export const startDeletingProduct = (id) => {
         if(ok){
             swalCustomStyle.fire('Successfully', msg, 'success');
             dispatch(productLoaded(products))
+        }else{
+            swalCustomStyle.fire('Error', msg, 'error');
+        }
+    }
+}
+
+export const startDeletingPicture = (id) => {
+    return async( dispatch ) => {
+        const resp = await fetchConToken('picture/'+id, {}, 'DELETE');
+        const {ok, products, product_updating, msg} = await resp.json();
+        if(ok){
+            swalCustomStyle.fire('Successfully', msg, 'success');
+            dispatch(productLoaded(products))
+            dispatch(startEditingProduct(product_updating))
         }else{
             swalCustomStyle.fire('Error', msg, 'error');
         }

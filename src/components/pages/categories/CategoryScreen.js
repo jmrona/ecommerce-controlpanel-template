@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DateComponent } from '../../shared/DateComponent'
 
 import { startGettingCategories } from '../../../actions/categories';
+import { Banner } from '../../ui/Banners/Banner';
 
 export const CategoryScreen = () => {
 
@@ -28,6 +29,14 @@ export const CategoryScreen = () => {
                     <h1>Categories</h1>
                     <DateComponent/>
                 </div>
+            </div>
+            <div className="flex-break"><br/></div>
+            <div className="row justify-content-start">
+                <Banner color="success" md="3" sm="12" css="m-1" icon="fas fa-check">
+                    <p>12</p>
+                    <small>Total categories</small>
+                </Banner>
+                
             </div>
         </div>
     )

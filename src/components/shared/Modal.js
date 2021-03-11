@@ -7,9 +7,9 @@ export const Modal = ({ children, title, isOpen, onClose }) => {
         <div id="modal">
             <div className="modal__container">
                 <div className="modal__header">
-                    <div className="modal__header-title">
+                    <h3 className="modal__header-title">
                         {title}
-                    </div>
+                    </h3>
                     <div className="modal-close">
                         <button onClick={onClose}>
                             <i className="fas fa-times"></i>

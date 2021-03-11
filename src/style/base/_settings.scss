@@ -1,4 +1,4 @@
-:root{
+:root {
     //btns
     --danger: #EF796D;
     --danger-border: #9e4e45;
@@ -67,6 +67,7 @@ html[data-theme='dark'] {
 
     //Shadow
     --shadow-color: #0B0A0F;
+    --shadow-dark: #030303;
 
     // Card
     --card-content-black: #1B1A1F;
@@ -95,6 +96,11 @@ html[data-theme='dark'] {
 
     // DateComponents
     --opacity: 0.5;
+
+    // Modal
+    --modalHeader: #232228;
+    --modalBody: #2c2b31;
+    --modalBorder: #161616;
 }
 
 html[data-theme='light'] {
@@ -105,6 +111,7 @@ html[data-theme='light'] {
 
     //Shadow
     --shadow-color: #8c8f92;
+    --shadow-dark: #2c2c2c;
 
     // Card
     --card-content-black: #e2e2e2;
@@ -133,4 +140,10 @@ html[data-theme='light'] {
 
     //DateComponents
     --opacity: 1;
+
+    // Modal
+    --modalHeader: #dadada;
+    --modalBody: #e6e6e6;
+    --modalBorder: #d1d1d1;
+
 }

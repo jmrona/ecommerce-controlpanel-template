@@ -1,0 +1,19 @@
+.alert {
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.alert ul {
+  margin-left: 1.5rem;
+}
+
+.alert ul li {
+  font-size: 0.9rem;
+}
+
+.alert-danger {
+  background-color: var(--danger);
+  border: 2px solid var(--banner-figure-danger);
+}
+/*# sourceMappingURL=alert.css.map */

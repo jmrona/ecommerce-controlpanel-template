@@ -16,6 +16,7 @@
     overflow: hidden;
 
     position: relative;
+    top: 0; left: 0; right: 0; bottom: 0;
     z-index: 0;
 
     .circle{
@@ -50,13 +51,13 @@
     .rectangle{
         position: absolute;
         border-radius: 5px;
-        z-index: 1;
+        transform: rotateZ(45deg);
+        // z-index: 1;
     }
 
     .rectangle:nth-child(1){
         top: 30px;
         right: 280px;
-        transform: rotateZ(45deg);
 
         width: 150px;
         height: 30px;
@@ -65,7 +66,6 @@
     .rectangle:nth-child(2){
         top: -5px;
         right: 290px;
-        transform: rotateZ(45deg);
 
         width: 70px;
         height: 30px;
@@ -74,7 +74,6 @@
     .rectangle:nth-child(3){
         top: 90px;
         right: 147px;
-        transform: rotateZ(45deg);
 
         width: 170px;
         height: 30px;
@@ -111,7 +110,6 @@
         width: 25px;
         height: 25px;
     }
-
 }
 
 .banner-content {

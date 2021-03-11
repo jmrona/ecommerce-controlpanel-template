@@ -1,4 +1,10 @@
 form{
+
+    .form-content{
+        display: flex;
+        flex-flow: column wrap;
+    }
+
     label{
         padding-bottom: 5px;
         color: var(--colorText);
@@ -35,5 +41,74 @@ form{
 
     input[type=number]{
         padding: 6px 5px;
+    }
+}
+
+.gallery{
+    display: flex;
+    flex-flow: column nowrap;
+    place-items: center;
+}
+
+.btn-add-pictures{
+    display:flex;
+    align-items: center;
+    margin: 10px auto;
+    width: 75px;
+    height: 75px;
+    
+    border-radius: 5px;
+    border: 2px dotted var(--colorText);
+    transition: var(--duration) ease-in-out;
+
+
+    &:hover{
+        border: 2px dotted var(--success);
+    }
+
+    i{
+        font-size: 2rem;
+        width: 100%;
+        
+        text-align: center;
+        transition: var(--duration) ease-in-out;
+
+        &:hover{
+            color: var(--success);
+            font-size: 2.5rem;
+        };
+    };
+
+}
+
+.product-gallery{
+    display: flex;
+    flex-flow: row wrap;
+
+    .picture{
+        position: relative;
+        margin: 5px;
+        width: 45%;
+        top: 0; left: 0; right: 0; bottom: 0;
+
+        img{
+            width: 100%;
+            z-index: 0;
+        }
+
+        i{
+            position:absolute;
+
+            padding: 0.4rem 0.6rem;
+            top: -2px; left: -2px; 
+            
+            border-radius: 5px;
+            background: var(--danger);
+            color: var(--colorText);
+
+            cursor: pointer;
+
+            z-index: 1;
+        }
     }
 }

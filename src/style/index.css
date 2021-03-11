@@ -48,6 +48,7 @@ html[data-theme='dark'] {
   --bgColorNav: #0B0A0F;
   --active:#3f78ce;
   --shadow-color: #0B0A0F;
+  --shadow-dark: #030303;
   --card-content-black: #1B1A1F;
   --card-border-black: #111111;
   --card-content-default: #eee;
@@ -68,6 +69,9 @@ html[data-theme='dark'] {
   --tr-Hover-color: #252e3f;
   --table-border-black: #0b0a0f82;
   --opacity: 0.5;
+  --modalHeader: #232228;
+  --modalBody: #2c2b31;
+  --modalBorder: #161616;
 }
 
 html[data-theme='light'] {
@@ -76,6 +80,7 @@ html[data-theme='light'] {
   --bgColorNav:#EBEBF5;
   --active:#2e5896;
   --shadow-color: #8c8f92;
+  --shadow-dark: #2c2c2c;
   --card-content-black: #e2e2e2;
   --card-border-black: #cccccc;
   --card-content-default: #242424;
@@ -96,6 +101,9 @@ html[data-theme='light'] {
   --tr-Hover-color: #acacac;
   --table-border-black: #3f618082;
   --opacity: 1;
+  --modalHeader: #dadada;
+  --modalBody: #e6e6e6;
+  --modalBorder: #d1d1d1;
 }
 
 * {
@@ -103,7 +111,7 @@ html[data-theme='light'] {
           box-sizing: border-box;
 }
 
-html, body, h1, h2, h3 {
+html, body, h1, h2, h3, h4, h5 {
   margin: 0px;
   padding: 0px;
 }
@@ -608,6 +616,24 @@ a {
   }
 }
 
+@-webkit-keyframes fade {
+  from {
+    visibility: hidden;
+  }
+  to {
+    visibility: visible;
+  }
+}
+
+@keyframes fade {
+  from {
+    visibility: hidden;
+  }
+  to {
+    visibility: visible;
+  }
+}
+
 .wrapper-auth {
   width: 100vw;
   height: 100vh;
@@ -777,7 +803,7 @@ div.subrow {
 }
 
 .col-6 {
-  width: 50%;
+  width: 49%;
 }
 
 .col-7 {
@@ -1087,6 +1113,25 @@ div.subrow {
   border: 1px solid var(--danger);
   color: var(--danger);
   -webkit-text-stroke: 1px #252525;
+}
+
+.alert {
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.alert ul {
+  margin-left: 1.5rem;
+}
+
+.alert ul li {
+  font-size: 0.9rem;
+}
+
+.alert-danger {
+  background-color: var(--danger);
+  border: 2px solid var(--banner-figure-danger);
 }
 
 a.btn-flex {
@@ -1399,6 +1444,10 @@ button:hover {
   padding: 1rem;
   overflow: hidden;
   position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 0;
 }
 
@@ -1431,14 +1480,13 @@ button:hover {
 .banner .rectangle {
   position: absolute;
   border-radius: 5px;
-  z-index: 1;
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
 }
 
 .banner .rectangle:nth-child(1) {
   top: 30px;
   right: 280px;
-  -webkit-transform: rotateZ(45deg);
-          transform: rotateZ(45deg);
   width: 150px;
   height: 30px;
 }
@@ -1446,8 +1494,6 @@ button:hover {
 .banner .rectangle:nth-child(2) {
   top: -5px;
   right: 290px;
-  -webkit-transform: rotateZ(45deg);
-          transform: rotateZ(45deg);
   width: 70px;
   height: 30px;
 }
@@ -1455,8 +1501,6 @@ button:hover {
 .banner .rectangle:nth-child(3) {
   top: 90px;
   right: 147px;
-  -webkit-transform: rotateZ(45deg);
-          transform: rotateZ(45deg);
   width: 170px;
   height: 30px;
 }
@@ -1780,6 +1824,16 @@ div.card .active-user, div.card .banned-user {
   margin: 0;
 }
 
+form .form-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+
 form label {
   padding-bottom: 5px;
   color: var(--colorText);
@@ -1816,6 +1870,87 @@ form textarea {
 
 form input[type=number] {
   padding: 6px 5px;
+}
+
+.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  place-items: center;
+}
+
+.btn-add-pictures {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px auto;
+  width: 75px;
+  height: 75px;
+  border-radius: 5px;
+  border: 2px dotted var(--colorText);
+  -webkit-transition: var(--duration) ease-in-out;
+  transition: var(--duration) ease-in-out;
+}
+
+.btn-add-pictures:hover {
+  border: 2px dotted var(--success);
+}
+
+.btn-add-pictures i {
+  font-size: 2rem;
+  width: 100%;
+  text-align: center;
+  -webkit-transition: var(--duration) ease-in-out;
+  transition: var(--duration) ease-in-out;
+}
+
+.btn-add-pictures i:hover {
+  color: var(--success);
+  font-size: 2.5rem;
+}
+
+.product-gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.product-gallery .picture {
+  position: relative;
+  margin: 5px;
+  width: 45%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.product-gallery .picture img {
+  width: 100%;
+  z-index: 0;
+}
+
+.product-gallery .picture i {
+  position: absolute;
+  padding: 0.4rem 0.6rem;
+  top: -2px;
+  left: -2px;
+  border-radius: 5px;
+  background: var(--danger);
+  color: var(--colorText);
+  cursor: pointer;
+  z-index: 1;
 }
 
 .loadingScreen {
@@ -2263,7 +2398,10 @@ table tbody tr:hover {
   background: var(--bgColorMain);
   -webkit-backdrop-filter: var(--bgColorNav);
           backdrop-filter: var(--bgColorNav);
+  border: 2px solid var(--modalBorder);
   border-radius: 5px;
+  -webkit-box-shadow: 0 2px 25px 0px var(--shadow-dark);
+          box-shadow: 0 2px 25px 0px var(--shadow-dark);
 }
 
 #modal .modal__container .modal__header {
@@ -2275,6 +2413,7 @@ table tbody tr:hover {
       -ms-flex-pack: justify;
           justify-content: space-between;
   border-bottom: 1px solid #00000044;
+  background: var(--modalHeader);
 }
 
 #modal .modal__container .modal__header .modal__header-title {
@@ -2285,6 +2424,8 @@ table tbody tr:hover {
 #modal .modal__container .modal__header .modal-close button {
   background: var(--bgColorMain);
   border: none;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
   cursor: pointer;
   padding: 1rem;
 }
@@ -2297,10 +2438,12 @@ table tbody tr:hover {
 
 #modal .modal__container .modal__header .modal-close button:hover i {
   font-size: 1.2rem;
+  color: var(--danger);
 }
 
 #modal .modal__container .modal__body {
   width: 100%;
   padding: 1rem;
+  background-color: var(--modalBody);
 }
 /*# sourceMappingURL=index.css.map */

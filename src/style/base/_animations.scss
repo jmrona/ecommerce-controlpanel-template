@@ -2,3 +2,8 @@
     from {width: 0;}
     to {width: auto;}
 }
+
+@keyframes fade {
+    from {visibility: hidden}
+    to {visibility: visible}
+}

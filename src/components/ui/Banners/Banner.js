@@ -32,6 +32,6 @@ Banner.propTypes = {
         'default', 
         'blue',
     ]).isRequired,
-    icon: PropTypes.isRequired,
+    icon: PropTypes.string.isRequired,
     type: PropTypes.oneOf(['circle', 'rectangle', 'square'])
   };

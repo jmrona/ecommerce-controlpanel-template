@@ -28,7 +28,9 @@
 
         background: var(--bgColorMain);
         backdrop-filter: var(--bgColorNav);
+        border: 2px solid var(--modalBorder);
         border-radius: 5px;
+        box-shadow: 0 2px 25px 0px var(--shadow-dark);
 
         .modal__header{
             display: inline-flex;
@@ -36,6 +38,7 @@
             justify-content: space-between;
 
             border-bottom: 1px solid #00000044 ;
+            background: var(--modalHeader);
 
             .modal__header-title{
                 text-align: center;
@@ -46,6 +49,7 @@
                 button{
                     background: var(--bgColorMain);
                     border: none;
+                    box-shadow: none !important;
 
                     cursor:pointer;
 
@@ -57,7 +61,7 @@
                     }
                     
                     &:hover{
-                        i{font-size: 1.2rem;}
+                        i{font-size: 1.2rem; color: var(--danger);}
                     }
                 }
                 
@@ -67,6 +71,8 @@
         .modal__body{
             width: 100%;
             padding: 1rem;
+
+            background-color: var(--modalBody);
         }
     }
 }

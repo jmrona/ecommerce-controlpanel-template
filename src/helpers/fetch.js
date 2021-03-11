@@ -1,3 +1,4 @@
+import axios from 'axios';
 const baseUrl = process.env.REACT_APP_API_URL;
 
 export const fetchSinToken = ( endpoint, data, method = 'GET') => {
@@ -57,16 +58,23 @@ export const fetchConToken = ( endpoint, data, method = 'GET') => {
     }
 }
 
-export const fetchConTokenAndFile = ( endpoint, data, method) => {
+export const fetchConTokenAndFile = ( endpoint, {formData}, method) => {
     const url = `${baseUrl}/${endpoint}`; //localhost:8000/api/auth
     const token = localStorage.getItem('token') || '';
-    return fetch(url, {
-        method,
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'multipart/form-data; charset=utf-8; boundary=----'+Math.random().toString().substr(2),
-            'Authorization': 'Bearer '+token
-        },
-        body: data
-    })
+
+    if(method === 'POST'){
+        return axios.post(url, formData, {
+            headers: {
+                'Authorization': 'Bearer '+token,
+            }
+        })
+    }
+
+    if(method === 'PUT'){
+        return axios.put(url, formData, {
+            headers: {
+                'Authorization': 'Bearer '+token,
+            }
+        })
+    }
 }
