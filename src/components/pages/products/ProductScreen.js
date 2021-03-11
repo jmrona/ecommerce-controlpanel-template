@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Card } from '../../ui/Cards/Card'
 import { ProductTable } from '../../ui/Tables/ProductTable'
 import { DateComponent } from '../../shared/DateComponent'
 

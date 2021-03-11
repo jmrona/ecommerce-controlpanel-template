@@ -1,7 +1,8 @@
 import { types } from "../types/types";
 
 const initialState = {
-    categories: []
+    categories: [],
+    categoryActive: {}
 }
 
 export const categoryReducer = (state = initialState, action) => {
@@ -10,6 +11,18 @@ export const categoryReducer = (state = initialState, action) => {
             return {
                 ...state,
                 categories: action.payload
+            }
+
+        case types.categoryEdit:
+            return {
+                ...state,
+                categoryActive: action.payload
+            }
+
+        case types.categoryCleanActive:
+            return {
+                ...state,
+                categoryActive: {}
             }
 
         default:

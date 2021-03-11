@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { startCleaningActiveProduct, startCreatingProduct, startDeletingPicture, startUpdatingProduct } from '../../../actions/products';
+import { swalCustomStyle } from '../../../helpers/swalCustom';
 import { useForm } from '../../../hooks/useForm'
 import { BtnSubmit } from '../Buttons/BtnSubmit';
 
@@ -9,17 +10,18 @@ export const ProductForm = ({categories, closeModal, product}) => {
     
     const { id, name:ename, description:edescription, price:eprice, status:estatus, in_discount:ein_discount, discount:ediscount, category_id:ecategory, get_pictures } = product;
     const [formData, handleInputChange, handleInputFileChange] = useForm({
-        name: ename || '11asd',
-        description: edescription || 'asd',
-        price: eprice || '1',
+        name: ename || '',
+        description: edescription || '',
+        price: eprice || '',
         status: estatus || '',
         in_discount: ein_discount || '',
         discount: ediscount || '',
-        category: ecategory || '1',
+        category: ecategory || '',
         gallery: get_pictures || []
     });
     
     let { name, description, price, status, in_discount, discount, category, gallery } = formData;
+    
     useEffect((useForm) => {
     },[gallery])
 
@@ -38,9 +40,23 @@ export const ProductForm = ({categories, closeModal, product}) => {
         }
         
         if(Object.keys(product).length <= 0){
+            swalCustomStyle.fire({
+                icon: 'info',
+                title: 'Creating product...',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            
             dispatch(startCreatingProduct(name, description, price, status, in_discount, discount, category, gallery));
             closeModal && closeModal()
         }else{
+            swalCustomStyle.fire({
+                icon: 'info',
+                title: 'Updating product...',
+                showConfirmButton: false,
+                timer: 1500
+            })
+
             dispatch(startUpdatingProduct(id, name, description, price, status, in_discount, discount, category, gallery));
             dispatch(startCleaningActiveProduct);
             closeModal && closeModal()

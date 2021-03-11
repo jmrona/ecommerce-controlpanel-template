@@ -28,8 +28,10 @@ export const types = {
     productLoaded: '[products] Products loaded',
     productEdit: '[products] Products edit',
     productUpdate: '[products] Products updating',
-    productCleanActive: '[products] Products clean product active',
+    productCleanActive: '[products] Products clean product actived',
 
     //Categories
-    categoriesLoaded: '[categories] Categories loaded'
+    categoriesLoaded: '[categories] Categories loaded',
+    categoryEdit: '[categories] Categories edit',
+    categoryCleanActive: '[categories] Categories clean category actived',
 }

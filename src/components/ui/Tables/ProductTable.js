@@ -12,6 +12,8 @@ import { BtnFloat } from '../Buttons/BtnFloat';
 
 import { startGettingCategories } from '../../../actions/categories';
 import { startCleaningActiveProduct, startEditingProduct, startDeletingProduct } from '../../../actions/products';
+import { swalCustomStyle } from '../../../helpers/swalCustom';
+import Swal from 'sweetalert2';
 
 export const ProductTable = ({columns, data:products}) => {
     const [offset, setOffset] = useState(0);
@@ -59,7 +61,29 @@ export const ProductTable = ({columns, data:products}) => {
     }
 
     const handleDeleteProduct = (id) => {
-        dispatch(startDeletingProduct(id));
+        swalCustomStyle.fire({
+            title: 'Are you sure?',
+            text: "If you confirm this action, it will delete this product and its pictures permanently",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!',
+            reverseButtons: true,
+            focusCancel: true,
+          }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch(startDeletingProduct(id));
+                swalCustomStyle.fire({
+                    icon: 'info',
+                    title: 'Deleting product and pictures...',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                swalCustomStyle.fire('Cancelled','This category is safe','info')
+            }
+          })
+        // dispatch(startDeletingProduct(id));
     }
 
     const {productActive} = useSelector(state => state.products)
